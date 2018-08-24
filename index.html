@@ -13,27 +13,31 @@
     <h1 class="item">Tech Help @ SBTS</h1>
     <img src="img/SBTS-logo.jpg" alt="SBTS Logo">
   </header>
-  <div id="formsDiv">
-    <form class="form">
-      <label for="buildop">What building are you in?</label>
-      <select id="buildop" onchange="buildingSelection()" value="">
-        <option></option>
-      </select>
-    </form>
-    <form id = "roomform" class="form" style="display:none;">
-      <label for="roomop">What room are you in?</label>
-      <select id="roomop">
-        <option></option>
-      </select>
-    </form>
-    <form id="probform" class="form" style="display:none;">
-      <label for="probop">What's the Problem?</label>
-      <select id="probop">
-        <option></option>
-      </select>
-    </form>
-  </div>
+  <main>
+    <div id="forms-div">
+      <ul>
+        <li><form class="form">
+          <label for="buildop">What building are you in?</label>
+          <select id="buildop" onchange="buildingSelection()" value="">
+            <option></option>
+          </select>
+        </form></li>
+        <li><form id = "roomform" class="form" style="display:none;">
+          <label for="roomop">What room are you in?</label>
+          <select id="roomop" onchange="roomSelection()">
+            <option></option>
+          </select>
+        </form></li>
+        <li><form id="probform" class="form" style="display:none;">
+          <label for="probop">What's the Problem?</label>
+          <select id="probop">
+            <option></option>
+          </select>
+        </form></li>
+    </ul>
+    </div>
+  </main>
   <script src="techapp.js"></script>
   </body>
   <footer></footer>
-  </html>
+</html>
