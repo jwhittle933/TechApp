@@ -3,10 +3,12 @@ const roomOption = [011, 012, 013, 014, 015, 016, 017, 018, 019, 20,
 const select = document.querySelector('#op1');
 console.log(roomOption);
 
-for (var i = 0; i <= roomOption.length; i++){
+
+//CREATE DROP MENU 
+for (var i = 2; i <= roomOption.length; i++){
   var optionMenu = roomOption[i];
   var dropMenu = document.createElement('option');
-  var dropText = document.createTextNode(roomOption[i]);
-  //dropMenu.appendChild(dropText);
-  select.appendChild(dropMenu)
-}
+  var dropText = document.createTextNode(optionMenu);
+  dropMenu.appendChild(dropText);
+  select.appendChild(dropMenu);
+}//close for loop
