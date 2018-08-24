@@ -2,14 +2,18 @@ header {
   display: inline-flex;
   width: 100%;
   border-bottom: solid 2px #223351;
+  flex-wrap: wrap;
+}
+main {
+  height: 500px;
 }
 .item {
   flex-grow: 2;
   align-self: flex-end;
 }
-.form {
+#forms-div li{
+  list-style: none; 
 }
-
 img {
   height: 150px;
 }
