@@ -1,6 +1,19 @@
 header {
-  
+  display: inline-flex;
+  width: 100%;
+  border-bottom: solid 2px #223351;
+}
+.item {
+  flex-grow: 2;
+  align-self: flex-end;
+}
+img {
+  height: 150px;
 }
 h1 {
   font-family: Cinzel;
+  font-size: 3em;
+}
+form {
+  margin-top: 25px;
 }
