@@ -1,4 +1,4 @@
-//ARRAYS
+//ARRAYS---------------------------------------------->
 const building = {Norton: ["", 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
         101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232],
                   Carver: ["", 135, 108],
@@ -9,8 +9,6 @@ const nortonRooms = building.Norton;
 const carverRooms = building.Carver;
 const rankinRooms = building.Rankin;
 const libraryRooms = building.Library;
-
-//CONST roomNorton
 const problem = {Projector: ["Is the light green?", "Is there a blue screen"],
                  Computer: ["Is it a seminary issued laptop?", "Is it powered on?"],
                  Screen: ["Is your computer plugged in?", "Is the screen blue?"],
@@ -20,7 +18,7 @@ const problem = {Projector: ["Is the light green?", "Is there a blue screen"],
                  PlayDisc: ["Are you using a BluRay Player?"]};
 var keys = Object.keys(problem);//get keys
 
-//DOM OBJECTS
+//DOM OBJECTS--------------------------------------------------->
 const selectBuilding = document.querySelector('#buildop');
 const selectProblem = document.querySelector('#probop');
 const selectRoom = document.querySelector('#roomop');
@@ -28,7 +26,7 @@ const roomForm = document.querySelector('#roomform');
 const probForm = document.querySelector('#probform');
 
 
-//ROOM AND BUILDING FUNCTIONS
+//ROOM AND BUILDING FUNCTIONS------------------------------------>
   //CREATE BUILDING MENU
 function callBuildingName() {
   for (var i = 0; i < buildingName.length; i++) {
@@ -89,7 +87,7 @@ function callLibraryRooms() {
   }//close loop
 }//end function
 
-//CREATE PROBLEM MENU
+  //CREATE PROBLEM MENU
 function callProblem() {
   for (var i = 0; i < keys.length; i++){
     var problemOption = keys[i];//grab problem
@@ -100,11 +98,14 @@ function callProblem() {
   }//close loop
 }//end function
 
-//BUILDING AND ROOM MENU CONTROLLER
+//BUILDING AND ROOM MENU CONTROLLER--------------------------------->
 function buildingSelection() {
     var choice = document.forms[0].buildop.value;
+    console.log(choice);
+    //var choice2 =  document.forms[1].probop.value;
     if (choice === "") {
       roomForm.style.display = "none";
+      probForm.style.display = "none";
     } if (choice === "Norton") {
       selectRoom.innerHTML = "";
       roomForm.style.display = "inline-flex";
@@ -121,5 +122,16 @@ function buildingSelection() {
       selectRoom.innerHTML = "";
       roomForm.style.display = "inline-flex";
       callLibraryRooms();
-    }
+    }//end conditional
 }//end function
+
+
+function roomSelection() {
+  var choice2 = document.forms[1].roomop.value;
+  console.log(choice2);
+  probForm.style.display = "inline-flex";
+  if (choice2 === "") {
+    probForm.style.display = "none";
+  }//end conditional
+}//end function
+callProblem();
