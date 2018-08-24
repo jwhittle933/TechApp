@@ -7,6 +7,9 @@ header {
   flex-grow: 2;
   align-self: flex-end;
 }
+.form {
+}
+
 img {
   height: 150px;
 }
@@ -16,4 +19,11 @@ h1 {
 }
 form {
   margin-top: 25px;
+}
+label {
+  font-family: Montserrat;
+}
+select {
+  width: auto;
+  margin: 5px;
 }
