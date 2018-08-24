@@ -1,9 +1,9 @@
 //ARRAYS
-const building = {Norton: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+const building = {Norton: ["", 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
         101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232],
-                  Carver: [135, 108],
-                  Rankin: [101, 201],
-                  Library: ["Crsimon", "Curriculum Lab", "Mullins Room"]};
+                  Carver: ["", 135, 108],
+                  Rankin: ["", 101, 201],
+                  Library: ["", "Crsimon", "Curriculum Lab", "Mullins Room"]};
 const buildingName = Object.keys(building);
 const nortonRooms = building.Norton;
 const carverRooms = building.Carver;
@@ -24,6 +24,8 @@ var keys = Object.keys(problem);//get keys
 const selectBuilding = document.querySelector('#buildop');
 const selectProblem = document.querySelector('#probop');
 const selectRoom = document.querySelector('#roomop');
+const roomForm = document.querySelector('#roomform');
+const probForm = document.querySelector('#probform');
 
 
 //ROOM AND BUILDING FUNCTIONS
@@ -98,26 +100,26 @@ function callProblem() {
   }//close loop
 }//end function
 
-//BUILDING AND ROOM CONDITIONALS
-  //RETURN SELECTION TEXT VALUE
+//BUILDING AND ROOM MENU CONTROLLER
 function buildingSelection() {
     var choice = document.forms[0].buildop.value;
-    if (choice === "Norton") {
-      //let nortSelect = document.querySelector('#roomform');
-      //nortSelect.style.display = "block";
+    if (choice === "") {
+      roomForm.style.display = "none";
+    } if (choice === "Norton") {
+      selectRoom.innerHTML = "";
+      roomForm.style.display = "inline-flex";
       callNortonRooms();
     } else if (choice === "Carver"){
-      let carvSelect = document.querySelector('#roomform');
-      carvSelect.style.display = "block";
+      selectRoom.innerHTML = "";
+      roomForm.style.display = "inline-flex";
       callCarverRooms();
     } else if (choice === "Rankin") {
-      let rankSelect = document.querySelector('#roomform');
-      rankSelect.style.display = "block";
+      selectRoom.innerHTML = "";
+      roomForm.style.display = "inline-flex";
       callRankinRooms();
     } else if (choice === "Library"){
-      let libSelect = document.querySelector('#roomform');
-      libSelect.style.display = "block";
+      selectRoom.innerHTML = "";
+      roomForm.style.display = "inline-flex";
       callLibraryRooms();
     }
-    console.log(choice);
 }//end function
