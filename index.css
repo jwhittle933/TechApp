@@ -66,7 +66,13 @@ footer ul {
   width:50%;
 }
 #suggestion-div li {
+  font-family: Montserrat;
+  font-size: 2em;
   list-style: none;
+  height: auto
+  width: auto;
+  margin: auto;
+  background-color: #FFFDFA;
 }
 #southern-links {
   float:left;
