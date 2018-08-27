@@ -3,23 +3,23 @@ header {
   width: 100%;
   border-bottom: solid 2px #223351;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+header p {
+  font-family: Sawarabi Mincho;
 }
 main {
-  height: 500px;
-}
-.item {
-  flex-grow: 2;
-  align-self: flex-end;
-}
-#forms-div li{
-  list-style: none; 
+  height: 400px;
 }
 img {
-  height: 150px;
+  height: 175px;
 }
 h1 {
   font-family: Cinzel;
-  font-size: 3em;
+  font-size: 4.5em;
+}
+h2 {
+  font-family: Sawarabi Mincho;
 }
 form {
   margin-top: 25px;
@@ -28,6 +28,59 @@ label {
   font-family: Montserrat;
 }
 select {
-  width: auto;
+  width: 100px;
   margin: 5px;
+}
+footer {
+  background-color: #325D7F;
+  color: #E7F2EA;
+  height: 200px;
+  border: solid 5px #3C5D5E;
+}
+footer ul {
+}
+
+/*----ID SELECTORS---*/
+#item {
+  flex: 2 0 75%;
+  align-self: flex-end;
+  margin-bottom: 15px;
+}
+#item2 {
+}
+#item3 {
+  flex-wrap: wrap;
+}
+#forms-div {
+  float:left;
+  width: 50%;
+}
+#forms-div li {
+  list-style: none;
+}
+#p-div {
+  flex-wrap: wrap;
+}
+#suggestion-div{
+  float:right;
+  width:50%;
+}
+#suggestion-div li {
+  list-style: none;
+}
+#southern-links {
+  float:left;
+  width: 50%;
+}
+#southern-links li {
+  list-style: none;
+}
+#other-links {
+  float: right;
+  width: 50%;
+}
+#other-links ul {
+}
+#other-links li {
+  list-style: none;
 }
