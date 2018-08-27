@@ -7,11 +7,12 @@
       <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Cinzel|Lobster" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  </head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>  </head>
   <body>
   <header>
-    <h1 class="item">Tech Help @ SBTS</h1>
-    <img src="img/SBTS-logo.jpg" alt="SBTS Logo">
+    <h1 id="item">Tech Help @ SBTS</h1>
+    <img src="img/SBTS-logo.jpg" alt="SBTS Logo" id="item2">
+    <p id="item3">A quick help site for when a technician is unavailable</p>
   </header>
   <main>
     <div id="forms-div">
@@ -30,14 +31,34 @@
         </form></li>
         <li><form id="probform" class="form" style="display:none;">
           <label for="probop">What's the Problem?</label>
-          <select id="probop">
+          <select id="probop" onchange="probSelection()">
             <option></option>
           </select>
         </form></li>
-    </ul>
+      </ul>
+    </div>
+    <div id = "suggestion-div" style="display:none">
+      <ul id="suggestion-ul">
+        <h2>Quick Suggestions</h2>
+        <li></li>
+      </ul>
     </div>
   </main>
   <script src="techapp.js"></script>
   </body>
-  <footer></footer>
+  <footer>
+    <div id="southern-links">
+      <ul>
+        <li>SBTS</li>
+        <li>Canvas</li>
+        <li>MySBTS</li>
+      </ul>
+    </div>
+    <div id="other-links">
+      <ul>
+        <li>AlberMohler.com</li>
+        <li>Campus Technology</li>
+      </ul>
+    </div>
+  </footer>
 </html>
