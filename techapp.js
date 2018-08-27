@@ -163,8 +163,10 @@ function probSelection() {
     suggestionDiv.style.display = "none";
   } else if (choice3 === "Projector"){
     suggestionDiv.style.display = "block";
+    suggestionUl.innerHTML = "";
     for (var i = 0; i < probProjector.length; ++i){
       var probText = probProjector[i];
+      console.log(probText);
       var probLI = document.createElement('li');
       var probTextOp = document.createTextNode(probText);
       probLI.appendChild(probTextOp);
@@ -172,17 +174,80 @@ function probSelection() {
     }//close for-loop 1
   } else if (choice3 === "Computer"){
     suggestionDiv.style.display = "block";
+    suggestionUl.innerHTML = "";
+    for (var i = 0; i < probComputer.length; ++i){
+      var probText = probComputer[i];
+      console.log(probText);
+      var probLI = document.createElement('li');
+      var probTextOp = document.createTextNode(probText);
+      probLI.appendChild(probTextOp);
+      suggestionUl.appendChild(probLI);
+    }//close for-loop 2
   } else if (choice3 === "Screen"){
     suggestionDiv.style.display = "block";
+    suggestionUl.innerHTML = "";
+    for (var i = 0; i < probScreen.length; ++i){
+      var probText = probScreen[i];
+      console.log(probText);
+      var probLI = document.createElement('li');
+      var probTextOp = document.createTextNode(probText);
+      probLI.appendChild(probTextOp);
+      suggestionUl.appendChild(probLI);
+    }//close for-loop 3
   } else if (choice3 === "Audio"){
     suggestionDiv.style.display = "block";
+    suggestionUl.innerHTML = "";
+    for (var i = 0; i < probAudio.length; ++i){
+      var probText = probAudio[i];
+      console.log(probText);
+      var probLI = document.createElement('li');
+      var probTextOp = document.createTextNode(probText);
+      probLI.appendChild(probTextOp);
+      suggestionUl.appendChild(probLI);
+    }//close for-loop 4
   } else if (choice3 === "Video"){
     suggestionDiv.style.display = "block";
+    suggestionUl.innerHTML = "";
+    for (var i = 0; i < probVideo.length; ++i){
+      var probText = probVideo[i];
+      console.log(probText);
+      var probLI = document.createElement('li');
+      var probTextOp = document.createTextNode(probText);
+      probLI.appendChild(probTextOp);
+      suggestionUl.appendChild(probLI);
+    }//close for-loop 5
   } else if (choice3 === "Power"){
     suggestionDiv.style.display = "block";
+    suggestionUl.innerHTML = "";
+    for (var i = 0; i < probPower.length; ++i){
+      var probText = probPower[i];
+      console.log(probText);
+      var probLI = document.createElement('li');
+      var probTextOp = document.createTextNode(probText);
+      probLI.appendChild(probTextOp);
+      suggestionUl.appendChild(probLI);
+    }//close for-loop 6
   } else if (choice3 === "PlayDisc"){
     suggestionDiv.style.display = "block";
+    suggestionUl.innerHTML = "";
+    for (var i = 0; i < probPlayDisc.length; ++i){
+      var probText = probPlayDisc[i];
+      console.log(probText);
+      var probLI = document.createElement('li');
+      var probTextOp = document.createTextNode(probText);
+      probLI.appendChild(probTextOp);
+      suggestionUl.appendChild(probLI);
+    }//close for-loop 7
   } else if (choice3 === "Adapter"){
     suggestionDiv.style.display = "block";
-  }
+    suggestionUl.innerHTML = "";
+    for (var i = 0; i < probAdapter.length; ++i){
+      var probText = probAdapter[i];
+      console.log(probText);
+      var probLI = document.createElement('li');
+      var probTextOp = document.createTextNode(probText);
+      probLI.appendChild(probTextOp);
+      suggestionUl.appendChild(probLI);
+    }//close for-loop 8
+  }//close conditional
 } //end function
