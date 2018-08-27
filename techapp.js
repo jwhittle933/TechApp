@@ -15,7 +15,7 @@ const problem = {Projector: ["Is the light green?", "Is there a blue screen", "D
                  Audio: ["Is the cable plugged in?", "Is your computer muted?", "Is the Crestron muted?"],
                  Video: ["Is the projector on?", "Are you plugged in?"],
                  Power: ["Are the desks connected?"],
-                 PlayDisc: ["Are you using a BluRay Player?"],
+                 PlayDisc: ["Are you using a BluRay Player?", "Are you using your computer?"],
                  Adapter: ["Have you checked to see if your computer can plug straight in?"]
                };
 const probProjector = problem['Projector'];
@@ -152,102 +152,69 @@ function roomSelection() {
   }//end conditional
 }//end function
 
+//FOR LOOP FUNCTION
+function createProblemListItems(e) {
+  var probText = e;
+  var probLI = document.createElement('li');
+  var probTextOp = document.createTextNode(probText);
+  probLI.appendChild(probTextOp);
+  suggestionUl.appendChild(probLI);
+}
 
 // SUGGESTION OPTIONS CONTROLLER---------------------------------->
 function probSelection() {
   var choice = document.forms[0].buildop.value;
   var choice2 = document.forms[1].roomop.value;
   var choice3 = document.forms[2].probop.value;
-  console.log(choice3);
   if (choice3 === "") {
     suggestionDiv.style.display = "none";
   } else if (choice3 === "Projector"){
     suggestionDiv.style.display = "block";
     suggestionUl.innerHTML = "";
     for (var i = 0; i < probProjector.length; ++i){
-      var probText = probProjector[i];
-      console.log(probText);
-      var probLI = document.createElement('li');
-      var probTextOp = document.createTextNode(probText);
-      probLI.appendChild(probTextOp);
-      suggestionUl.appendChild(probLI);
+      createProblemListItems(probProjector[i]);
     }//close for-loop 1
   } else if (choice3 === "Computer"){
     suggestionDiv.style.display = "block";
     suggestionUl.innerHTML = "";
     for (var i = 0; i < probComputer.length; ++i){
-      var probText = probComputer[i];
-      console.log(probText);
-      var probLI = document.createElement('li');
-      var probTextOp = document.createTextNode(probText);
-      probLI.appendChild(probTextOp);
-      suggestionUl.appendChild(probLI);
+      createProblemListItems(probComputer[i]);
     }//close for-loop 2
   } else if (choice3 === "Screen"){
     suggestionDiv.style.display = "block";
     suggestionUl.innerHTML = "";
     for (var i = 0; i < probScreen.length; ++i){
-      var probText = probScreen[i];
-      console.log(probText);
-      var probLI = document.createElement('li');
-      var probTextOp = document.createTextNode(probText);
-      probLI.appendChild(probTextOp);
-      suggestionUl.appendChild(probLI);
+      createProblemListItems(probScreen[i]);
     }//close for-loop 3
   } else if (choice3 === "Audio"){
     suggestionDiv.style.display = "block";
     suggestionUl.innerHTML = "";
     for (var i = 0; i < probAudio.length; ++i){
-      var probText = probAudio[i];
-      console.log(probText);
-      var probLI = document.createElement('li');
-      var probTextOp = document.createTextNode(probText);
-      probLI.appendChild(probTextOp);
-      suggestionUl.appendChild(probLI);
+      createProblemListItems(probAudio[i]);
     }//close for-loop 4
   } else if (choice3 === "Video"){
     suggestionDiv.style.display = "block";
     suggestionUl.innerHTML = "";
     for (var i = 0; i < probVideo.length; ++i){
-      var probText = probVideo[i];
-      console.log(probText);
-      var probLI = document.createElement('li');
-      var probTextOp = document.createTextNode(probText);
-      probLI.appendChild(probTextOp);
-      suggestionUl.appendChild(probLI);
+      createProblemListItems(probVideo[i]);
     }//close for-loop 5
   } else if (choice3 === "Power"){
     suggestionDiv.style.display = "block";
     suggestionUl.innerHTML = "";
     for (var i = 0; i < probPower.length; ++i){
-      var probText = probPower[i];
-      console.log(probText);
-      var probLI = document.createElement('li');
-      var probTextOp = document.createTextNode(probText);
-      probLI.appendChild(probTextOp);
-      suggestionUl.appendChild(probLI);
+      createProblemListItems(probPower[i]);
     }//close for-loop 6
   } else if (choice3 === "PlayDisc"){
     suggestionDiv.style.display = "block";
     suggestionUl.innerHTML = "";
     for (var i = 0; i < probPlayDisc.length; ++i){
-      var probText = probPlayDisc[i];
-      console.log(probText);
-      var probLI = document.createElement('li');
-      var probTextOp = document.createTextNode(probText);
-      probLI.appendChild(probTextOp);
-      suggestionUl.appendChild(probLI);
+      createProblemListItems(probPlayDisc[i]);
     }//close for-loop 7
   } else if (choice3 === "Adapter"){
     suggestionDiv.style.display = "block";
     suggestionUl.innerHTML = "";
     for (var i = 0; i < probAdapter.length; ++i){
-      var probText = probAdapter[i];
-      console.log(probText);
-      var probLI = document.createElement('li');
-      var probTextOp = document.createTextNode(probText);
-      probLI.appendChild(probTextOp);
-      suggestionUl.appendChild(probLI);
+      createProblemListItems(probAdapter[i]);
     }//close for-loop 8
   }//close conditional
 } //end function
