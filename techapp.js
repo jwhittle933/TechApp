@@ -9,7 +9,7 @@ const nortonRooms = building.Norton;
 const carverRooms = building.Carver;
 const rankinRooms = building.Rankin;
 const libraryRooms = building.Library;
-const problem = {Projector: ["Is the light green?", "Is there a blue screen"],
+const problem = {Projector: ["Is the light green?", "Is there a blue screen", "Do you have a remote?"],
                  Computer: ["Is it a seminary issued laptop?", "Is it powered on?"],
                  Screen: ["Is your computer plugged in?", "Is the screen blue?"],
                  Audio: ["Is the cable plugged in?", "Is your computer muted?", "Is the Crestron muted?"],
@@ -102,6 +102,7 @@ function callLibraryRooms() {
 
   //CREATE PROBLEM MENU
 function callProblem() {
+  selectProblem.innerHTML = "<option></option>";
   for (var i = 0; i < keys.length; i++){
     var problemOption = keys[i];//grab problem
     var problemMenu = document.createElement('option'); // create <option>
@@ -147,11 +148,6 @@ function roomSelection() {
   if (choice2 === "") {
     probForm.style.display = "none";
   } else {
-      selectProblem.innerHTML = "";
-      var blankOp = document.createElement('option');
-      var opText = document.createTextNode('');
-      blankOp.appendChild(opText);
-      selectProblem.appendChild(blankOp);
       callProblem();
   }//end conditional
 }//end function
@@ -167,13 +163,13 @@ function probSelection() {
     suggestionDiv.style.display = "none";
   } else if (choice3 === "Projector"){
     suggestionDiv.style.display = "block";
-    for (var i = 0; i <= probProjector.length; i++){
+    for (var i = 0; i < probProjector.length; ++i){
       var probText = probProjector[i];
       var probLI = document.createElement('li');
       var probTextOp = document.createTextNode(probText);
       probLI.appendChild(probTextOp);
       suggestionUl.appendChild(probLI);
-    }//close for loop 1
+    }//close for-loop 1
   } else if (choice3 === "Computer"){
     suggestionDiv.style.display = "block";
   } else if (choice3 === "Screen"){
