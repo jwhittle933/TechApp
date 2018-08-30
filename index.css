@@ -61,7 +61,7 @@ a {
 
 /*----CLASS SELECTORS------*/
 .rotate {
-  transform: rotate(360deg);
+  transform: rotate(90deg);
   transition: .5s;
 }
 .rotate-reset {
@@ -104,19 +104,23 @@ a {
   display: none;
 }
 .menu-items-view {
-  display:none;
+  display: none;
   background-color: #FFFDFA;
-  position: fixed;
+  position: sticky;
   left: 5px;
   top: 75px;
   width: 30%;
   border: solid 2px #6DB3BF;
   z-index: 1;
+  box-shadow: 5px 5px 5px #67696E;
+}
+#menu-items {
 }
 #menu-items li {
   color: black;
   list-style: none;
   font-family: Montserrat;
+  font-size: 1.25em;
   margin-left: 4px;
   padding: 2px;
 }
@@ -175,7 +179,7 @@ a {
   background: black;
   color: #fff;
   position: fixed;
-  height: 75%;
+  height: 50%;
   width: 75%;
   top: 20%;
   left: 13%;
@@ -184,7 +188,7 @@ a {
 }
 #solution-content-div p {
   font-family: Sawarabi Mincho;
-  font-size: 1.5em; 
+  font-size: 1.5em;
   margin: 5px;
   padding: 5px;
 }
