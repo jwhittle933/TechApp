@@ -246,13 +246,13 @@ function appendProblemSuggest(text) { //called at line 193ff.
 }//end function
 
 //MENU EXPAND----------------------------------------------------------->
-$('#menu-div').click(function(){
+$('svg').click(function(){
     $('.menu-items-view').slideToggle(800);
 })//end toggle click handler
 $('#menu-div svg').on("click", function (event) {
     $('.svg').toggleClass('rotate');
     $('.svg').toggleClass('rotate-reset');
 });//end animation click handler
-$(window).scroll(function() {
-  $('.menu-items-view').slideUp(200);
-})
+// $(window).scroll(function() {
+//   $('.menu-items-view').slideUp(200);
+// })
