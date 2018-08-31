@@ -69,6 +69,8 @@ a {
     transition: .5s;
 }
 .clickable{
+  display: flex;
+  justify-content: space-between;
   font-family: Montserrat;
   font-size: 1.75em;
   list-style: none;
@@ -81,6 +83,9 @@ a {
   border-left: solid 5px #0468BF;
   background-color: #FFFDFA;
   box-shadow: 3px 3px grey;
+}
+.clickable button {
+  align-self: flex-end;
 }
 
 /*----ID SELECTORS---*/
@@ -176,19 +181,28 @@ a {
 }
 #solution-content-div{
   display: none;
-  background: black;
+  background: #FFF;
   color: #fff;
   position: fixed;
-  height: 50%;
-  width: 75%;
+  height: auto;
+  width: auto;
   top: 20%;
   left: 13%;
-  opacity: .9;
   z-index: 2;
+  box-shadow: 5px 5px 5px #67696E;
+  border: solid 2px #243441;
 }
 #solution-content-div p {
   font-family: Sawarabi Mincho;
-  font-size: 1.5em;
+  font-size: 1.25em;
+  color: black;
   margin: 5px;
   padding: 5px;
+}
+.solution-close {
+  border-radius: 40%;
+  background-color: #FF5D4E;
+  position: fixed;
+  top: 75px;
+  left: 135px;
 }
