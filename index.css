@@ -46,7 +46,7 @@ select {
 footer {
   background-color: #325D7F;
   color: #E7F2EA;
-  height: 200px;
+  height:100px;
   border: solid 5px #3C5D5E;
 }
 footer ul {
@@ -188,9 +188,15 @@ a {
   width: auto;
   top: 20%;
   left: 13%;
+  right: 13%;
   z-index: 2;
   box-shadow: 5px 5px 5px #67696E;
   border: solid 2px #243441;
+}
+#solution-content-div h2 {
+  font-family: Sawarabi Mincho;
+  color: black;
+  text-align: center;
 }
 #solution-content-div p {
   font-family: Sawarabi Mincho;
@@ -199,10 +205,18 @@ a {
   margin: 5px;
   padding: 5px;
 }
+.solutionButton {
+  height: auto;
+  width: auto;
+  font-family: monospace;
+  font-size: 1.25em;
+  border-radius: 15px;
+}
 .solution-close {
+  font-family: monospace;
   border-radius: 40%;
   background-color: #FF5D4E;
-  position: fixed;
-  top: 75px;
-  left: 135px;
+  position: absolute;
+  left: -10px;
+  top: -10px;
 }
