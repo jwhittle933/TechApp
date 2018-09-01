@@ -27,12 +27,17 @@ const nortonProjector = {11: "The projector system in most of the basement rooms
                        13: "Room 13 contains a short throw projector, situated right above the white board. You can connect to this projector the same way as many of the other rooms, by plugging your computer into the wall jack. If youa are plugged in and there is still no video (the screen will be blue), check the cable in the wall to make sure its plugged all the way in.",
                        17: "This room is like others in the basement of Norton, but unlike them this room does not have an HDMI input. If your computer does not have a VGA port built in, it will be necessary to check out an adapter. As well, VGA does not trasmit audio, so if you desire to play a video or any form of audio, make sure that the audio cable in the wall is plugged into your headphone jack.",
                        100200: "This room contains a Crestron room controller. The touch screen on the lecturn powers on the projector, so you will not find a projector remote. To start the system, just select which input you'd like to use (House PC, HDMI, or VGA), and plug in your device.",
+                       195: "This room contains two different projection systems. One is a Crestron, similar to the 100 classrooms in Norton. To start up, simply select the input you'd like from either HDMI or VGA (the touch screen includes House PC, but this is not functional). Selecting the input will turn the projectors on. Ensure that your computer is connected to one of the cables coming from the wooden lecturn and an image will appear after the projectors warm up. Unfortunately, this system does not have audio capability at this time. The other system projects direcly down the middle and includes audio. To start this system, plug your computer into the blue-tipped VGA cable coming from the metal cabinet and push the selector button until the light is on the side labeld Computer. For this system, you'll need the white projector remote to turn it on. The remote has two sections: one power button at the top to turn the speaker on and another section to power the projector.",
                        203: "Room 203 is similar to the preaching labs in the basement, rooms 12 and 16. The projector is controlled by the touch panel on the wall. Make sure you select the Room Controls options at the bottom of the screen and select your input. If you desire to plug your device in, select the button that images a wall plate. If you desire to use the Apple TV, selec the image of the Apple TV.",
                        208: "Room 208 contains a Crestron room controller like many other rooms in Norton. The touch screen on the lecturn powers on the projector, so you will not find a projector remote. To start the system, just select which input you'd like to use (House PC, HDMI, or VGA), and plug in your device. This room also comes with a gooseneck microphone for amplification. If you desire to use the microphone, find the mute button on the left side of the touch display and unselect it. Above that button is a volume control that will allow you to adjust your amplification.",
                        232: "This room contains a TV with an HDMI cable for you to plug into."}
 //Norton room groups: Group 1 {11, 15}, Group 2 {13}, Group 3 {17, 20, 204}, Group 4 {101, 102, 103, 104, 105, 201, 202, 206, 209}, Group 5 {203, 205, 207}, Group 6 {208}
-const nortonComputer = {};
-
+const nortonComputer = {11: "This room does not come equipped with a computer. If you are having trouble with your seminary issued computer, please contact the help desk at x4006 during working hours.",
+                        100200: "This room comes with Mac Mini that can be used to project on the screen. To log on, use your SBTS credentials (the same information you'd use to log on to your seminary issued laptop). The computer uses Windows 8, so some of the functions and locations may be different than what you're accustomed to. To access the smart board, launch WhiteBoard application from the desktop.",
+                        195: "This classroom has a computer in the metal cabinet. To access and project, you must locate the input switcher near the audio mixer and push the button until Tablet is selected. Once you turn on the middle project with the remote, the image of the computer should display. You can log in to the computer using your SBTS credentials."};
+const nortonScreen = "The screens in every room descend by pushing the toggle switch down. It is located near one of the doors. If you cannot get your computer to display properly, please select Projector from the drop menu and read the room info.";
+const nortonAudio = {11: "This room is equipped to handle audio playback. If you are playing audio with video, try to use the HDMI input if possible, as this cable transmits both audio and video. If you are just playing audio or are using the VGA, be sure to plug the audio cable into your headphone jack. The volume is controlled partly by your computer's volume and partly by the projector volume. Our suggestion: turn your computer volume up to 75% and the projector to 50%.",
+                    100200: "This room is equipped to handle audio playback. If you are playing audio with video, try to use the HDMI input if possible, as this cable transmits both audio and video. If you are just playing audio or are using the VGA, be sure to plug the audio cable into your headphone jack. The volume is controlled partly by your computer's output volume and partly by the volume on the Crestron touch screen. The touch screen will be muted by default. Ensure that mute is turned off and the volume is high."};
 var carverProjector = {108:["The projector system in this room has two inputs: HDMI(small and thin) and VGA(slightly larger). Check the wall jack to make sure that it has not been damaged. These rooms also reqire a remote to power on the projector. If one is not present, check the surrounding rooms as there is sure to be one present. Also, you may reach up and manually push the power button on the remote. The Campus Technology office is upstairs on the main hallway and if anyone is there, they may be able to help you. "]}
 const probProjector = problem['Projector'];
 const probComputer = problem['Computer'];
@@ -181,6 +186,8 @@ function probSelection() {
       callSolutions(nortonProjector[17]);
     } else if (choice2 === '13'){
       callSolutions(nortonProjector[13]);
+    } else if (choice2 === '195') {
+      callSolutions(nortonProjector[195]);
     } else if (choice2 === '101' || choice2 === '102' || choice2 === '103' || choice2 === '104' || choice2 === '105' || choice2 === '201' || choice2 === '202' || choice2 === '206' || choice2 === '209'){
       callSolutions(nortonProjector[100200]);
     } else if (choice2 === '203' || choice2 === '205' || choice2 === '207'){
@@ -195,7 +202,13 @@ function probSelection() {
     for (var i = 0; i < probComputer.length; ++i){
       createProblemListItems(probComputer[i]);
     }//close for-loop 2
-    
+    if (choice2 === '11' || choice2 === '12' || choice2 === '14' || choice2 === '15' || choice2 === '16' || choice2 === '17' || choice2 === '20' || choice2 === '203' || choice2 === '204' || choice2 === '205' || choice2 === '207'){
+      callSolutions(nortonComputer[11]);
+    } else if (choice2 === '101' || choice2 === '102' || choice2 === '103' || choice2 === '104' || choice2 === '105' || choice2 === '201' || choice2 === '202' || choice2 === '206' || choice2 === '208' || choice2 === '209'){
+      callSolutions(nortonComputer[100200]);
+    } else if (choice2 === '195'){
+      callSolutions(nortonComputer[195]);
+    }//end embedded conditional
   }
 
   else if (choice3 === "Screen"){
@@ -203,6 +216,7 @@ function probSelection() {
     for (var i = 0; i < probScreen.length; ++i){
       createProblemListItems(probScreen[i]);
     }//close for-loop 3
+    callSolutions(nortonScreen);
   }
 
   else if (choice3 === "Audio"){
