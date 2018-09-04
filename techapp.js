@@ -37,7 +37,15 @@ const nortonComputer = {11: "This room does not come equipped with a computer. I
                         195: "This classroom has a computer in the metal cabinet. To access and project, you must locate the input switcher near the audio mixer and push the button until Tablet is selected. Once you turn on the middle project with the remote, the image of the computer should display. You can log in to the computer using your SBTS credentials."};
 const nortonScreen = "The screens in every room descend by pushing the toggle switch down. It is located near one of the doors. If you cannot get your computer to display properly, please select Projector from the drop menu and read the room info.";
 const nortonAudio = {11: "This room is equipped to handle audio playback. If you are playing audio with video, try to use the HDMI input if possible, as this cable transmits both audio and video. If you are just playing audio or are using the VGA, be sure to plug the audio cable into your headphone jack. The volume is controlled partly by your computer's volume and partly by the projector volume. Our suggestion: turn your computer volume up to 75% and the projector to 50%.",
-                    100200: "This room is equipped to handle audio playback. If you are playing audio with video, try to use the HDMI input if possible, as this cable transmits both audio and video. If you are just playing audio or are using the VGA, be sure to plug the audio cable into your headphone jack. The volume is controlled partly by your computer's output volume and partly by the volume on the Crestron touch screen. The touch screen will be muted by default. Ensure that mute is turned off and the volume is high."};
+                    12: "This room is equipped to handle audio playback. The volume is controlled by the Extron touch screen on the lecturn and the volume on your computer. If you are playing audio along with video, be sure that you are using the HDMI input. If you are just playing audio or are using the VGA cable, be sure to connect the accompanying audio cable.",
+                    100200: "This room is equipped to handle audio playback. If you are playing audio with video, try to use the HDMI input if possible, as this cable transmits both audio and video. If you are just playing audio or are using the VGA, be sure to plug the audio cable into your headphone jack. The volume is controlled partly by your computer's output volume and partly by the volume on the Crestron touch screen. The touch screen will be muted by default. Ensure that mute is turned off and the volume is high.",
+                    195: "This room can only handle audio playback through the central sound system. The Crestron, at the moment, is incapable of transmitting audio. If you desire to play audio, be sure to connect the audio cable coming from the sound mixer into your headphone jack, and check that volume is turned up on the speaker above the central projector.",
+                    232: "This room is equipped with a TV for playback of video and audio. All audio playback must go through this TV or portable speakers must be used. The TV is equipped with an HDMI cable."};
+const nortonVideo = {11: "This room is equipped with both HDMI and VGA video input. In order to display your screen, make sure that you have the appropriate adapter for your device, turn the projector on with the remote, and make sure that the projector is on the correct input chanel. To select the correct chanel, press the button labeled Source Search and the projector will automatically select your input.",
+                    12: "This room is equipped with an Extron room control system. To display video, select either the HDMI or VGA inputs from the wall and select the wall plate icon in the Room Controls menu on the touch screen, or select the Apple TV icon and connect to the Apple TV.",
+                    100200: "This room is equipped with a Crestron room controller. Video options include HDMI, VGA, as well as a Mac Mini running Windows if you don't wish to bring your device. Select the input you desire from the touch screen and the projector will turn on automatically. ",
+                    195:"There are two different projection systems in Norton 195. If you desire to write on the board, use the Crestron system mounted in the wooden lecturn. This system operates exactly like the rooms on Norton with similar technology, except that there is no House PC mounted in this room. To use the centrally located projector, connect your computer (with adapter if necessary) to the blue-tipped VGA cable and be sure that the selector is on laptop. Then turn the projector on with the white remote.",
+                    232: "Room 232 is equipped with a TV and an HDMI cable. Connect your device with appropreiate adapter to the TV and select the HDMI 1 input."}
 var carverProjector = {108:["The projector system in this room has two inputs: HDMI(small and thin) and VGA(slightly larger). Check the wall jack to make sure that it has not been damaged. These rooms also reqire a remote to power on the projector. If one is not present, check the surrounding rooms as there is sure to be one present. Also, you may reach up and manually push the power button on the remote. The Campus Technology office is upstairs on the main hallway and if anyone is there, they may be able to help you. "]}
 const probProjector = problem['Projector'];
 const probComputer = problem['Computer'];
@@ -194,6 +202,8 @@ function probSelection() {
       callSolutions(nortonProjector[203]);
     } else if (choice2 === '208'){
       callSolutions(nortonProjector[208]);
+    } else if (choice2 === '232'){
+      callSolutions(nortonProjector[232]);
     }//end embedded conditional
   }
 
@@ -224,6 +234,17 @@ function probSelection() {
     for (var i = 0; i < probAudio.length; ++i){
       createProblemListItems(probAudio[i]);
     }//close for-loop 4
+    if (choice2 === '11' || choice2 === '15' || choice2 === '17' || choice2 === '20'|| choice2 === '204'){
+      callSolutions(nortonAudio[11]);
+    } else if (choice2 === '12' || choice2 === '16' || choice2 === '203' || choice2 === '205' || choice2 === '207'){
+      callSolutions(nortonAudio[12]);
+    } else if (choice2 === '101' || choice2 === '102' || choice2 === '103' || choice2 === '104' || choice2 === '105' || choice2 === '201' || choice2 === '202' || choice2 === '206' || choice2 === '208' || choice2 === '209'){
+      callSolutions(nortonAudio[100200]);
+    } else if (choice2 === '195'){
+      callSolutions(nortonAudio[195]);
+    } else if (choice2 === '232'){
+      callSolutions(nortonAudio[232]);
+    }//end embedded conditional
   }
 
   else if (choice3 === "Video"){
@@ -231,6 +252,17 @@ function probSelection() {
     for (var i = 0; i < probVideo.length; ++i){
       createProblemListItems(probVideo[i]);
     }//close for-loop 5
+    if (choice2 === '11' || choice2 === '15' || choice2 === '17' || choice2 === '20'|| choice2 === '204'){
+      callSolutions(nortonVideo[11]);
+    } else if (choice2 === '12' || choice2 === '16' || choice2 === '203' || choice2 === '205' || choice2 === '207'){
+      callSolutions(nortonVideo[12]);
+    } else if (choice2 === '101' || choice2 === '102' || choice2 === '103' || choice2 === '104' || choice2 === '105' || choice2 === '201' || choice2 === '202' || choice2 === '206' || choice2 === '208' || choice2 === '209'){
+      callSolutions(nortonVideo[100200]);
+    } else if (choice2 === '195'){
+      callSolutions(nortonVideo[195]);
+    } else if (choice2 === '232'){
+      callSolutions(nortonVideo[232]);
+    }//end embedded conditional
   }
 
   else if (choice3 === "Power"){

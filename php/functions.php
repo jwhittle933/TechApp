@@ -1,36 +1,31 @@
 <?php
-require_once 'login.php';
-
-function get_book_list(){
-  include 'connection.php';
-  try {
-    return $db->query('SELECT * FROM BOOKS');
-  } catch (Exception $e) {
-    echo "Error!: " . $e->getMessage();
-    return false;
-  }
+function get_post($conn, $var){
+  return $conn->real_escape_string($_POST[$var]);
 }
-$books = get_book_list();
-$book_array = $podcasts->fetchAll(PDO::FETCH_ASSOC);
-foreach ($book_array as $book) {
-  echo $book['title']. " " . $book['year_published'];
+function validate_forename($field){
+  return ($field == "") ? "*First name is blank<br>" : "";
+}
+function validate_surname($field){
+  return ($field == "") ? "*Last name is blank<br>" : "";
+}
+function validate_buildingName($field){
+  return ($field == "") ? "*Building field is blank<br>" : "";
+}
+function validate_roomNumber($field){
+  return ($field == "") ? "*Room field is blank<br>" : "";
+}
+function validate_problem($field){
+  return ($field == "") ? "*Problem field is blank<br>" : "";
+}
+function validate_email($field){
+  if ($field == "") return "*Email is blank<br>";
+  else if (!((strpos($field, ".") > 0) && (strpos($field, "@") > 0)) ||
+    preg_match("/[^a-zA-Z0-9.@_-]/", $field)) return "The email address is invalid<br>";
+  return "";
+}
+function fix_string($string){
+  if (get_magic_quotes_gpc()) $string = stripslashes($string);
+  return htmlentities($string);
 }
 
-/*
-function add_project($title, $category) {
-  include "connection.php"
-
-  $sql = "INSERT INTO projects(title, category) VALUES (?, ?)";
-
-  try {
-    $results = $db->prepare($sql);
-    $results->bindValue(1, $title, PDO::PARAM_STRING);
-    $results->bindValue(1, $category, PDO::PARAM_STRING);
-    $results->execute();
-  } catch (Exception $e){
-    echo "Error: " . $e->getMessage();
-    return false;
-  }
-  return true;
-}
-*/
+ ?>

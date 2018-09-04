@@ -1,14 +1,8 @@
 <?php //login
-$hn = 'localhost';//domain, but local in this case
-$db = 'formsSubmits';
-$un = 'username'; //set MySQL username
-$pw = 'password'; //set MySQL password
-
-
-
-
-
-
+$hn = 'localhost';
+$db = 'Form_Submits';
+$un = 'root'; //set MySQL username
+$pw = 'mysql'; //set MySQL password
 
 
  ?>

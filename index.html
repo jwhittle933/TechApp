@@ -26,7 +26,7 @@
   <div id="menu">
     <div id="menu-items" class="menu-items-view">
       <ul>
-        <li><a href="Validate/validate.html" target="_blank">Submit a Technology Request</a></li>
+        <li><a href="#" target="_blank">Submit a Technology Request</a></li>
         <li><a href="https://twitter.com/sbtstech?lang=en" target="_blank">What do I need?</a></li>
         <li><a href="http://www.sbts.edu/services/campus-technology/" target="_blank">Campus Technology Home</a></li>
         <li><a href="http://www.sbts.edu" target="_blank">SBTS Home</a></li>
@@ -44,21 +44,21 @@
   <main>
     <div id="forms-div">
       <ul>
-        <li><form class="form">
+        <li><form class="form" method="post" action="">
           <label for="buildop">What building are you in?</label>
-          <select id="buildop" value="">
+          <select id="buildop" value="" name="buildop">
             <option></option>
           </select>
         </form></li>
-        <li><form id = "roomform" class="form" style="display:none;">
+        <li><form id = "roomform" class="form" style="display:none;" method="post" action="">
           <label for="roomop">What room are you in?</label>
-          <select id="roomop">
+          <select id="roomop" name="roomop">
             <option></option>
           </select>
         </form></li>
-        <li><form id="probform" class="form" style="display:none;">
+        <li><form id="probform" class="form" style="display:none;" method="post" action="">
           <label for="probop">What's the Problem?</label>
-          <select id="probop">
+          <select id="probop" name="probop">
           </select>
         </form></li>
       </ul>
@@ -68,7 +68,7 @@
       <ul id="suggestion-ul">
       </ul>
       <button class="solutionButton">Room Info</button>
-      <button class="solutionButton" type="submit" method="post">
+      <button onclick="location.href='Validate/validate.html'" class="solutionButton" type="submit" method="post" action="Validate/validate.html" name="report">
         Report a problem</button>
     </div>
     <div id="solution-content-div">

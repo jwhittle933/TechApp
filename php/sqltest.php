@@ -1,11 +1,11 @@
 <?php
 require_once 'login.php';
 $connection = new mysqli($hn, $un, $pw, $db);
-if ($connection->connect_error) {
+if ($conn->connect_error) {
   die('Fatal Error');
 }
 
-if (isset($_POST['delet']) && isset($_POST['isbn'])) {
+if (isset($_POST['delete']) && isset($_POST['isbn'])) {
   $isbn = get_post($conn, 'isbn');
   $query = "DELETE FROM classics WHERE isbn='$isbn'";
   $result = $conn->query($query);
@@ -51,20 +51,19 @@ echo
     $r3 = htmlspecialchars($row[3])
     $r4 = htmlspecialchars($row[4])
 
-
-    echo
-    <<<_END <pre>
-      Author $r0
-      Title $r1
-      Category $r2
-      Year $r3
-      ISBN $r4
-    <pre>
-    <form action="sqltest.php" method="post">
-    <input type="hidden" name="delete" value="yes">
-    <input type="hidden" name="isbn" value="$r4">
-    <input type="submit" name="DELETE RECORD"></form>
-    _END;
+echo<<<_END
+<pre>
+  Author $r0
+  Title $r1
+  Category $r2
+  Year $r3
+  ISBN $r4
+<pre>
+<form action="sqltest.php" method="post">
+<input type="hidden" name="delete" value="yes">
+<input type="hidden" name="isbn" value="$r4">
+<input type="submit" name="DELETE RECORD"></form>
+_END;
   }
 
   $result->close();
