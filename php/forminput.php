@@ -53,7 +53,7 @@ if (isset($_POST['forename']) &&
 
 if ($fail == ""){
   echo "</head><body><h1>Information Validated</h1><br>
-    $forename $surname,<br> $buildingName $roomNumber,<br> $problem,<br> $email<br>.</body></html>";
+    $forename $surname<br> $buildingName $roomNumber<br> $problem<br> $email<br></body></html>";
 
 } else {
 echo <<<_END
@@ -118,7 +118,6 @@ _END;
 
 $query = "SELECT * FROM formsubmissions";
 $result = $conn->query($query);
-var_dump($result);
 if (!$result) {
   die ('Fatal Error');
 }
@@ -127,18 +126,19 @@ $rows = $result->num_rows;
 
 for ($i = 0; $i < $rows; ++$i) {//Option 1------------------------->
   $result->data_seek($i);
-  echo "First Name: " . htmlspecialchars($result->fetch_assoc()['first_name']) . "<br>";
+  echo "<pre><b>First Name: " . htmlspecialchars($result->fetch_assoc()['first_name']) . "<br><br></pre>";
   $result->data_seek($i);
-  echo "Last Name: " . htmlspecialchars($result->fetch_assoc()['last_name']) . "<br>";
+  echo "<pre>Last Name: " . htmlspecialchars($result->fetch_assoc()['last_name']) . "<br><br></b></pre>";
   $result->data_seek($i);
-  echo "Building: " . htmlspecialchars($result->fetch_assoc()['building_name']) . "<br>";
+  echo "<pre>Building: " . htmlspecialchars($result->fetch_assoc()['building_name']) . "<br><br></pre>";
   $result->data_seek($i);
-  echo "Room: " . htmlspecialchars($result->fetch_assoc()['room_number']) . "<br>";
+  echo "<pre>Room: " . htmlspecialchars($result->fetch_assoc()['room_number']) . "<br><br></pre>";
   $result->data_seek($i);
-  echo "Problem: " . htmlspecialchars($result->fetch_assoc()['problem']) . "<br>";
+  echo "<pre>Problem: " . htmlspecialchars($result->fetch_assoc()['problem']) . "<br><br></pre>";
   $result->data_seek($i);
-  echo "Email: " . htmlspecialchars($result->fetch_assoc()['email']) . "<br>";
+  echo "<pre>Email: " . htmlspecialchars($result->fetch_assoc()['email']) . "<br><br></pre>";
 }
+echo "<pre style='font-size: 20px;'><a href='file:///Users/jwhittle/TechApp/index.html'>Return</a> to TechHelp homepage.";
 
 $result->close();
 $conn->close();
