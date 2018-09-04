@@ -138,7 +138,7 @@ for ($i = 0; $i < $rows; ++$i) {//Option 1------------------------->
   $result->data_seek($i);
   echo "<pre>Email: " . htmlspecialchars($result->fetch_assoc()['email']) . "<br><br></pre>";
 }
-echo "<pre style='font-size: 20px;'><a href='file:///Users/jwhittle/TechApp/index.html'>Return</a> to TechHelp homepage.";
+echo "<pre style='font-size: 20px;'><a href='../index.html'>Return</a> to TechHelp homepage.";
 
 $result->close();
 $conn->close();
