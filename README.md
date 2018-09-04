@@ -1,21 +1,3 @@
 # TechApp
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
+A quick help guide for professors on the campus of Southern Seminary when a technician is unavailable to help. 
