@@ -1,6 +1,5 @@
 <?php //query-mysqli.
-require_once 'login.php';
-$conn = new mysqli($hn, $un, $pw, $db);
+require_once 'authenticate.php';
 
 if ($conn->connect_error) {
   die('Fatal Error');
@@ -17,7 +16,7 @@ $rows = $result->num_rows;
 
 for ($i = 0; $i < $rows; ++$i) {//Option 1------------------------->
   $result->data_seek($i);
-  echo "First Name: " . htmlspecialchars($result->fetch_assoc()['first_name']) . "<br>";
+  echo "<b>First Name: " . htmlspecialchars($result->fetch_assoc()['first_name']) . "</b><br><";
   $result->data_seek($i);
   echo "Last Name: " . htmlspecialchars($result->fetch_assoc()['last_name']) . "<br>";
   $result->data_seek($i);
@@ -44,7 +43,7 @@ for ($i = 0; $i < $rows; ++$i) {//Option 2-------------------------->
   $r2 = htmlspecialchars($row[2]);
   $r3 = htmlspecialchars($row[3]);
   echo "<pre>";
-  echo "Room ID: $r0<br>";
+  echo "<b>Room ID: $r0</b><br>";
   echo "Building: $r1<br>";
   echo "Room: $r2<br>";
   echo "Description: $r3<br>";
