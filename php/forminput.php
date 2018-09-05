@@ -1,6 +1,6 @@
 <?php
-include 'authenticate.php';
-include 'functions.php';
+include 'inc/authenticate.php';
+include 'inc/functions.php';
 
 $forename = $surname = $buildingName = $roomNumber = $problem = $email = "";
 

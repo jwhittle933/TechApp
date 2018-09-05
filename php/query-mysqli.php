@@ -1,5 +1,5 @@
 <?php //query-mysqli.
-require_once 'authenticate.php';
+require_once 'inc/authenticate.php';
 
 if ($conn->connect_error) {
   die('Fatal Error');
@@ -48,7 +48,6 @@ for ($i = 0; $i < $rows; ++$i) {//Option 2-------------------------->
   echo "Room: $r2<br>";
   echo "Description: $r3<br>";
   echo "</pre>";
-
 }
 
 
