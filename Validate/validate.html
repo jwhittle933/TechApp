@@ -10,7 +10,7 @@
   .signup {
     width: auto;
     border: 1px solid #999999;
-    font: normal 2em Sawarabi Mincho;
+    font: normal 1.5em Sawarabi Mincho;
     color: #444444;
   }
   .subbutton {
@@ -23,7 +23,9 @@
 </head>
 <body>
   <table class="signup" border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
+    <th colspan="2" align="center"><h1>Submit a Request</h1></th>
     <form method="post" action="/applications/ampps/www/reportform.php" onsubmit="return validate(this)">
+
       <tr><td>First Name</td>
         <td><input type="text" maxlength="32" name="forename"></td></tr>
       <tr><td>Last Name</td>

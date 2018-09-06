@@ -1,0 +1,62 @@
+{
+  "name": "techapp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "gulp-concat": "^2.6.1",
+    "vue": "^2.5.17"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.1",
+    "@vue/cli-plugin-eslint": "^3.0.1",
+    "@vue/cli-service": "^3.0.1",
+    "electron": "^2.0.8",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "ajaxinit.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwhittle933/TechApp.git"
+  },
+  "keywords": [
+    "classroom",
+    "education"
+  ],
+  "author": "Jonathan Whittle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwhittle933/TechApp/issues"
+  },
+  "homepage": "https://github.com/jwhittle933/TechApp#readme"
+}
