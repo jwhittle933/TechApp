@@ -1,4 +1,4 @@
-//ARRAYS-------------------------------------------------------------------->
+//OBJECTS-------------------------------------------------------------------->
 const building = {Norton: ["", 11, 12, 13, 14, 15, 16, 17, 20,
         101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232],
                   Carver: ["", 108, 135],
@@ -22,6 +22,7 @@ const problem = {Projector: ["Is the light green?", "Is there a blue screen?", "
                  AppleTV: ["Is it on but won't connect?", "Is your computer not detecting the device?"],
                  SmartBoard: ["Have you powered it on?", "Is the USB plugged in?", "Is the HDMI plugged in?", "Have you connected via the mobile app?"]
                 }
+//NORTON ROOM DEVICES---------------------------->
 const nortonProjector = {11: "The projector system in most of the basement rooms of Norton has two inputs: HDMI(small and thin) and VGA(slightly larger). Check the wall jack to make sure that it has not been damaged. These rooms also reqire a remote to power on the projector. If one is not present, check the surrounding rooms as there is sure to be one present. Also, you may reach up and manually push the power button on the remote.",
                        12: "This room contains an Extron room control system. The touch panel on the lecturn controls the projector and inputs. To turn the projector on, select Room Controls on the touch screen and then select from the Apple TV or wall jack inputs. Selection of eiter should turn the projector on for you. The wall jack inputs are automatic and will detect your computer. If you are connected but there is no video, check the cable in the wall to make sure it's inserted completely.",
                        13: "Room 13 contains a short throw projector, situated right above the white board. You can connect to this projector the same way as many of the other rooms, by plugging your computer into the wall jack. If youa are plugged in and there is still no video (the screen will be blue), check the cable in the wall to make sure its plugged all the way in.",
@@ -43,10 +44,60 @@ const nortonAudio = {11: "This room is equipped to handle audio playback. If you
                     232: "This room is equipped with a TV for playback of video and audio. All audio playback must go through this TV or portable speakers must be used. The TV is equipped with an HDMI cable."};
 const nortonVideo = {11: "This room is equipped with both HDMI and VGA video input. In order to display your screen, make sure that you have the appropriate adapter for your device, turn the projector on with the remote, and make sure that the projector is on the correct input chanel. To select the correct chanel, press the button labeled Source Search and the projector will automatically select your input.",
                     12: "This room is equipped with an Extron room control system. To display video, select either the HDMI or VGA inputs from the wall and select the wall plate icon in the Room Controls menu on the touch screen, or select the Apple TV icon and connect to the Apple TV.",
-                    100200: "This room is equipped with a Crestron room controller. Video options include HDMI, VGA, as well as a Mac Mini running Windows if you don't wish to bring your device. Select the input you desire from the touch screen and the projector will turn on automatically. ",
-                    195:"There are two different projection systems in Norton 195. If you desire to write on the board, use the Crestron system mounted in the wooden lecturn. This system operates exactly like the rooms on Norton with similar technology, except that there is no House PC mounted in this room. To use the centrally located projector, connect your computer (with adapter if necessary) to the blue-tipped VGA cable and be sure that the selector is on laptop. Then turn the projector on with the white remote.",
+                    100200: "This room is equipped with a Crestron room controller. Video options include HDMI, VGA, as well as a Mac Mini running Windows if you don't wish to bring your device. Select the input you desire from the touch screen and the projector will turn on automatically.",
+                    195: "There are two different projection systems in Norton 195. If you desire to write on the board, use the Crestron system mounted in the wooden lecturn. This system operates exactly like the rooms on Norton with similar technology, except that there is no House PC mounted in this room. To use the centrally located projector, connect your computer (with adapter if necessary) to the blue-tipped VGA cable and be sure that the selector is on laptop. Then turn the projector on with the white remote.",
                     232: "Room 232 is equipped with a TV and an HDMI cable. Connect your device with appropreiate adapter to the TV and select the HDMI 1 input."}
-var carverProjector = {108:["The projector system in this room has two inputs: HDMI(small and thin) and VGA(slightly larger). Check the wall jack to make sure that it has not been damaged. These rooms also reqire a remote to power on the projector. If one is not present, check the surrounding rooms as there is sure to be one present. Also, you may reach up and manually push the power button on the remote. The Campus Technology office is upstairs on the main hallway and if anyone is there, they may be able to help you. "]}
+const nortonPower = {11: ""}
+const nortonPlayDisc = {11: ""}
+const nortonAdapter = {11: ""}
+const nortonAppleTV = {11: ""}
+const nortonSmartBoard = {11: ""}
+//CARVER ROOM DEVICES------------------------------->
+const carverProjector = {108: "The projector system in this room has two inputs: HDMI(small and thin) and VGA(slightly larger). Check the wall jack to make sure that it has not been damaged. These rooms also reqire a remote to power on the projector. If one is not present, check the surrounding rooms as there is sure to be one present. Also, you may reach up and manually push the power button on the remote. The Campus Technology office is upstairs on the main hallway and if anyone is there, they may be able to help you."}
+const carverComputer = {108: ""}
+const carverScreen = {108: ""}
+const carverAudio = {108: ""}
+const carverVideo = {108: ""}
+const carverPower = {108: ""}
+const carverPlayDisc = {108: ""}
+const carverAdapter = {108: ""}
+const carverAppleTV = {108: ""}
+const carverSmartBoard = {108: ""}
+//RANKIN ROOM DEVICES---------------------------------->
+const rankinProjector = {108: ""}
+const rankinComputer = {108: ""}
+const rankinScreen = {108: ""}
+const rankinAudio = {108: ""}
+const rankinVideo = {108: ""}
+const rankinPower = {108: ""}
+const rankinPlayDisc = {108: ""}
+const rankinAdapter = {108: ""}
+const rankinAppleTV = {108: ""}
+const rankinSmartBoard = {108: ""}
+//LIBRARY ROOM DEVICES---------------------------------->
+const libraryProjector = {108: ""}
+const libraryComputer = {108: ""}
+const libraryScreen = {108: ""}
+const libraryAudio = {108: ""}
+const libraryVideo = {108: ""}
+const libraryPower = {108: ""}
+const libraryPlayDisc = {108: ""}
+const libraryAdapter = {108: ""}
+const libraryAppleTV = {108: ""}
+const librarySmartBoard = {108: ""}
+//COOK ROOM DEVICES-------------------------------------->
+const cookProjector = {108: ""}
+const cookComputer = {108: ""}
+const cookScreen = {108: ""}
+const cookAudio = {108: ""}
+const cookVideo = {108: ""}
+const cookPower = {108: ""}
+const cookPlayDisc = {108: ""}
+const cookAdapter = {108: ""}
+const cookAppleTV = {108: ""}
+const cookSmartBoard = {108: ""}
+
+//ARRAY SELECTIONS---------------------------------------------------------->
 const probProjector = problem['Projector'];
 const probComputer = problem['Computer'];
 const probScreen = problem['Screen'];
