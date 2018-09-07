@@ -61,7 +61,7 @@ const carverVideo = {108: ""}
 const carverPower = {108: ""}
 const carverPlayDisc = {108: ""}
 const carverAdapter = {108: ""}
-const carverAppleTV = {108: ""}
+const carverAppleTV = {108: "There is an Apple TV mounted on top of the projector. Press Source Search on the projector remote to select the HDMI input. On your Apple device, select airplay and the appropriate room number, then input the password that appears on the projector screen. Occationally, when an Apple TV sits idle for too long, it needs to be restarted. Remove the power cable from the back, wait a few seconds, and reinsert. The device should boot back up."}
 const carverSmartBoard = {108: ""}
 //RANKIN ROOM DEVICES---------------------------------->
 const rankinProjector = {108: ""}
@@ -109,12 +109,9 @@ const probAdapter = problem['Adapter'];
 const probAppleTV = problem['AppleTV'];
 const probSmartBoard = problem['SmartBoard'];
 const keys = Object.keys(problem);//get keys
-
+///////////////////////////////////////////////////////
 //DOM OBJECTS---------------------------------------------------------------->
-const selectBuilding = document.querySelector('#buildop');
-const selectProblem = document.querySelector('#probop');
-const selectRoom = document.querySelector('#roomop');
-const roomForm = document.querySelector('#roomform');
+///////////////////////////////////////////////////////
 const probForm = document.querySelector('#probform');
 const suggestionDiv = document.querySelector('#suggestion-div');
 const menuDiv = document.querySelector('#menu-div svg');
@@ -125,69 +122,68 @@ const paragraph = document.querySelector('#populate');
 
 
 //ROOM AND BUILDING FUNCTIONS-------------------------------------------------->
-  //CREATE BUILDING MENU
-function callBuildingName() {
-  for (var i = 0; i < buildingName.length; i++) {
-    var buildMenu = buildingName[i];//grab building names
-    var buildOption = document.createElement('option'); //create <option>
-    var buildText = document.createTextNode(buildMenu);//create text from buildingName[i]
-    buildOption.appendChild(buildText);//append building text to <option>
-    selectBuilding.appendChild(buildOption);//append <option> to id="buildop"
-  }//close loop
-}//end function
-callBuildingName();//populate Building selector
 
 //CREATE ROOM MENU---------------------------------------------------------->
 function callRooms(room) {
-  for (var i = 0; i < room.length; i++){
-    var optionRoomMenu = room[i];//grab room numbers
-    var roomMenu = document.createElement('option'); // create <option>
-    var roomText = document.createTextNode(optionRoomMenu); //create text from roomNorton[i]
+  let selectRoom = document.querySelector('#roomop');
+  for (let i = 0; i < room.length; i++){
+    let optionRoomMenu = room[i];//grab room numbers
+    let roomMenu = document.createElement('option'); // create <option>
+    let roomText = document.createTextNode(optionRoomMenu); //create text from roomNorton[i]
     roomMenu.appendChild(roomText); //append room text to <option>
     selectRoom.appendChild(roomMenu);//append <option> to id="roomop"
     selectRoom.style.display = "block";
   }//close loop
 }//end function
 
+//DISPLAY:NONE
+function displayChange(element, type) {
+  let domObject = document.querySelector(element);
+  domObject.style.display = type;
+}
+
 //BUILDING AND ROOM MENU CONTROLLER-------------------------------------------->
 function buildingSelection() {
-      var choice = selectBuilding.value;
-      //var choice = document.forms[0].buildop.value;
-      if (choice === "") {
-      roomForm.style.display = "none";
-      probForm.style.display = "none";
-      suggestionDiv.style.display = "none";
-    } if (choice === "Norton") {
-      selectRoom.innerHTML = "";
-      roomForm.style.display = "inline-flex";
-      callRooms(nortonRooms);
-    } else if (choice === "Carver"){
-      selectRoom.innerHTML = "";
-      roomForm.style.display = "inline-flex";
-      callRooms(carverRooms);
-    } else if (choice === "Rankin") {
-      selectRoom.innerHTML = "";
-      roomForm.style.display = "inline-flex";
-      callRooms(rankinRooms);
-    } else if (choice === "Library"){
-      selectRoom.innerHTML = "";
-      roomForm.style.display = "inline-flex";
-      callRooms(libraryRooms);
-    } else if (choice === "Cook"){
-      selectRoom.innerHTML = "";
-      roomForm.style.display = "inline-flex";
-      callRooms(cookRooms);
-    }//end conditional
+  let selectRoom = document.querySelector('#roomop');
+  let buildingSelection = document.querySelector('#buildop');
+  let choice = buildingSelection.value; 
+  console.log(choice);
+    //var choice = document.forms[0].buildop.value;
+    if (choice === "") {
+    displayChange('#roomform', 'none')
+    displayChange('#probform', 'none')
+    displayChange('#suggestion-div', 'none')
+  } if (choice === "Norton") {
+    selectRoom.innerHTML = "";
+    displayChange('#roomform', "inline-flex")
+    callRooms(nortonRooms);
+  } else if (choice === "Carver"){
+    selectRoom.innerHTML = "";
+    displayChange('#roomform', "inline-flex")
+    callRooms(carverRooms);
+  } else if (choice === "Rankin") {
+    selectRoom.innerHTML = "";
+    displayChange('#roomform', "inline-flex")
+    callRooms(rankinRooms);
+  } else if (choice === "Library"){
+    selectRoom.innerHTML = "";
+    displayChange('#roomform', "inline-flex")
+    callRooms(libraryRooms);
+  } else if (choice === "Cook"){
+    selectRoom.innerHTML = "";
+    displayChange('#roomform', "inline-flex")
+    callRooms(cookRooms);
+  }//end conditional
 }//end function
-selectBuilding.addEventListener('change', buildingSelection);//Listen for selection
 
 //CREATE PROBLEM MENU-------------------------------------------------------->
 function callProblem() {
+  let selectProblem = document.querySelector('#probop');
   selectProblem.innerHTML = "<option></option>";
-  for (var i = 0; i < keys.length; i++){
-    var problemOption = keys[i];//grab problem
-    var problemMenu = document.createElement('option'); // create <option>
-    var problemText = document.createTextNode(problemOption); //create text from problem[i]
+  for (let i = 0; i < keys.length; i++){
+    let problemOption = keys[i];//grab problem
+    let problemMenu = document.createElement('option'); // create <option>
+    let problemText = document.createTextNode(problemOption); //create text from problem[i]
     problemMenu.appendChild(problemText); //append problem text to <option>
     selectProblem.appendChild(problemMenu);//append <option> to id="roomop"
   }//close loop
@@ -203,7 +199,6 @@ function roomSelection() {
       callProblem();
   }//end conditional
 }//end function
-selectRoom.addEventListener('change', roomSelection);//Listen for selection
 
 //SUGGESTION OPTIONS FOR LOOP FUNCTION------------>
 function createProblemListItems(e) { //called at 212
