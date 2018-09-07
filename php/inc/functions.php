@@ -1,7 +1,4 @@
 <?php
-function get_post($conn, $var){
-  return $conn->real_escape_string($_POST[$var]);
-}
 function validate_forename($field){
   return ($field == "") ? "*First name is blank<br>" : "";
 }
@@ -26,6 +23,18 @@ function validate_email($field){
 function fix_string($string){
   if (get_magic_quotes_gpc()) $string = stripslashes($string);
   return htmlentities($string);
+}
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+return $data;
+}
+function get_post($var){
+  global $conn;
+  $var = strip_tags($var);
+  $var = stripslashes($var);
+  return $conn->real_escape_string($_POST[$var]);
 }
 
  ?>

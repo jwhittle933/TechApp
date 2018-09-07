@@ -8,15 +8,15 @@ echo "<!DOCTYPE html>\n<html><head><title>Form Submit</title>";
 
 
 if (isset($_POST['forename']))
-  $forename = fix_string($_POST['forename']);
+  $forename = htmlentities($_POST['forename'], ENT_QUOTES);
 if (isset($_POST['surname']))
-  $surname = fix_string($_POST['surname']);
+  $surname = htmlentities($_POST['surname'], ENT_QUOTES);
 if (isset($_POST['buildingName']))
-  $buildingName = fix_string($_POST['buildingName']);
+  $buildingName = htmlentities($_POST['buildingName'], ENT_QUOTES);
 if (isset($_POST['roomNumber']))
-  $roomNumber = fix_string($_POST['roomNumber']);
+  $roomNumber = htmlentities($_POST['roomNumber'], ENT_QUOTES);
 if (isset($_POST['problem']))
-  $problem = fix_string($_POST['problem']);
+  $problem = htmlentities($_POST['problem'], ENT_QUOTES);
 if (isset($_POST['email']))
   $email = fix_string($_POST['email']);
 
@@ -34,12 +34,12 @@ if (isset($_POST['forename']) &&
     isset($_POST['problem']) &&
     isset($_POST['email'])){
 
-  $forename = get_post($conn, 'forename');
-  $surname = get_post($conn, 'surname');
-  $buildingName = get_post($conn, 'buildingName');
-  $roomNumber = get_post($conn, 'roomNumber');
-  $problem = get_post($conn, 'problem');
-  $email = get_post($conn, 'email');
+  $forename = get_post('forename');
+  $surname = get_post('surname');
+  $buildingName = get_post('buildingName');
+  $roomNumber = get_post('roomNumber');
+  $problem = get_post('problem');
+  $email = get_post('email');
 
   $query = "INSERT INTO formsubmissions (first_name, last_name, building_name, room_number, problem, email) VALUES (?, ?, ?, ?, ?, ?)";
   $stmt = $conn->prepare($query);
