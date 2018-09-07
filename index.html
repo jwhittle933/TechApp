@@ -46,19 +46,24 @@
       <ul>
         <li><form class="form" method="post" action="">
           <label for="buildop">What building are you in?</label>
-          <select id="buildop" value="" name="buildop">
+          <select id="buildop" value="" name="buildop" onchange = 'buildingSelection()'>
             <option></option>
+            <option>Norton</option>
+            <option>Carver</option>
+            <option>Rankin</option>
+            <option>Library</option>
+            <option>Cook</option>
           </select>
         </form></li>
         <li><form id = "roomform" class="form" style="display:none;" method="post" action="">
           <label for="roomop">What room are you in?</label>
-          <select id="roomop" name="roomop">
+          <select id="roomop" name="roomop" onchange='roomSelection()'>
             <option></option>
           </select>
         </form></li>
         <li><form id="probform" class="form" style="display:none;" method="post" action="">
           <label for="probop">What's the Problem?</label>
-          <select id="probop" name="probop">
+          <select id="probop" name="probop" onchange='probSelection()'>
           </select>
         </form></li>
       </ul>

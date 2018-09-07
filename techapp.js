@@ -98,7 +98,6 @@ const cookAppleTV = {108: ""}
 const cookSmartBoard = {108: ""}
 
 //ARRAY SELECTIONS---------------------------------------------------------->
-const probProjector = problem['Projector'];
 const probComputer = problem['Computer'];
 const probScreen = problem['Screen'];
 const probAudio = problem['Audio'];
@@ -112,7 +111,6 @@ const keys = Object.keys(problem);//get keys
 ///////////////////////////////////////////////////////
 //DOM OBJECTS---------------------------------------------------------------->
 ///////////////////////////////////////////////////////
-const probForm = document.querySelector('#probform');
 const suggestionDiv = document.querySelector('#suggestion-div');
 const menuDiv = document.querySelector('#menu-div svg');
 const menuItems = document.querySelector('#menu-items');
@@ -125,14 +123,13 @@ const paragraph = document.querySelector('#populate');
 
 //CREATE ROOM MENU---------------------------------------------------------->
 function callRooms(room) {
-  let selectRoom = document.querySelector('#roomop');
   for (let i = 0; i < room.length; i++){
     let optionRoomMenu = room[i];//grab room numbers
     let roomMenu = document.createElement('option'); // create <option>
     let roomText = document.createTextNode(optionRoomMenu); //create text from roomNorton[i]
     roomMenu.appendChild(roomText); //append room text to <option>
-    selectRoom.appendChild(roomMenu);//append <option> to id="roomop"
-    selectRoom.style.display = "block";
+    childAppend('#roomop', roomMenu);
+    displayChange('#roomop', 'block')
   }//close loop
 }//end function
 
@@ -141,6 +138,16 @@ function displayChange(element, type) {
   let domObject = document.querySelector(element);
   domObject.style.display = type;
 }
+//INNER HTML
+function htmlChange(element, content){
+  let domObject = document.querySelector(element);
+  domObject.innerHTML = content;
+}
+//APPENDING CHILDREN ELEMENTS
+function childAppend(element, append){
+  let domObject = document.querySelector(element);
+  domObject.appendChild(append);
+}
 
 //BUILDING AND ROOM MENU CONTROLLER-------------------------------------------->
 function buildingSelection() {
@@ -148,29 +155,28 @@ function buildingSelection() {
   let buildingSelection = document.querySelector('#buildop');
   let choice = buildingSelection.value; 
   console.log(choice);
-    //var choice = document.forms[0].buildop.value;
     if (choice === "") {
     displayChange('#roomform', 'none')
     displayChange('#probform', 'none')
     displayChange('#suggestion-div', 'none')
   } if (choice === "Norton") {
-    selectRoom.innerHTML = "";
+    htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(nortonRooms);
   } else if (choice === "Carver"){
-    selectRoom.innerHTML = "";
+    htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(carverRooms);
   } else if (choice === "Rankin") {
-    selectRoom.innerHTML = "";
+    htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(rankinRooms);
   } else if (choice === "Library"){
-    selectRoom.innerHTML = "";
+    htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(libraryRooms);
   } else if (choice === "Cook"){
-    selectRoom.innerHTML = "";
+    htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(cookRooms);
   }//end conditional
@@ -178,21 +184,20 @@ function buildingSelection() {
 
 //CREATE PROBLEM MENU-------------------------------------------------------->
 function callProblem() {
-  let selectProblem = document.querySelector('#probop');
-  selectProblem.innerHTML = "<option></option>";
+  htmlChange('#probop', "<option></option>")
   for (let i = 0; i < keys.length; i++){
     let problemOption = keys[i];//grab problem
     let problemMenu = document.createElement('option'); // create <option>
     let problemText = document.createTextNode(problemOption); //create text from problem[i]
     problemMenu.appendChild(problemText); //append problem text to <option>
-    selectProblem.appendChild(problemMenu);//append <option> to id="roomop"
+    childAppend('#probop', problemMenu)
   }//close loop
 }//end function
 
 //PROBLEM MENU CONTROLLER--------------------------->
 function roomSelection() {
   var choice2 = document.forms[1].roomop.value;
-  probForm.style.display = "inline-flex";
+  displayChange('#probform', 'inline-flex')
   if (choice2 === "") {
     probForm.style.display = "none";
   } else {
@@ -202,9 +207,9 @@ function roomSelection() {
 
 //SUGGESTION OPTIONS FOR LOOP FUNCTION------------>
 function createProblemListItems(e) { //called at 212
-  var probText = e;
-  var probLI = document.createElement('li');
-  var probTextOp = document.createTextNode(probText);
+  let probText = e;
+  let probLI = document.createElement('li');
+  let probTextOp = document.createTextNode(probText);
   probLI.className = "clickable";
   probLI.appendChild(probTextOp);
   suggestionUl.appendChild(probLI);
@@ -212,7 +217,7 @@ function createProblemListItems(e) { //called at 212
 
 //RESET UL SUGGESTION OPTIONS---------------------->
 function resetUL() {
-  suggestionDiv.style.display = "block";
+  displayChange('#suggestion-div', 'block')
   suggestionUl.innerHTML = "";
 }
 
@@ -229,6 +234,7 @@ function probSelection() {
 
   else if (choice3 === "Projector"){//---------SECOND CONDITIONAL
     resetUL();//function on line 173ff
+    let probProjector = problem['Projector'];/////AJAX CALL---------------<<<<<<<<<<<<<<<<<<<<<
     for (var i = 0; i < probProjector.length; ++i){
       createProblemListItems(probProjector[i]);//function at 186ff.
     }//close for-loop
@@ -346,7 +352,6 @@ function probSelection() {
     }//close for-loop 8
   }//close conditional
 } //end function
-selectProblem.addEventListener('change', probSelection);//Listen for problem selection
 
 //EXPAND PROBLEM SOLUTION PARAGRAPHS-------------------------->
 function callSolutions(text) {
