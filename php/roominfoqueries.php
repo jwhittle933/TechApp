@@ -1,8 +1,5 @@
 <?php
 include 'inc/authenticate.php';
-
-$q = intval($_GET['q']);
-
 if (!$conn) {
     die('Could not connect: ' . mysqli_error($conn));
 }
@@ -10,9 +7,8 @@ if (!$conn) {
 $query = "SELECT description FROM device_description WHERE device = ? AND building = ? AND room_code = ?";
 
 /////////////////////////////////////////////////////////////////
-//--------------------NORTON DEVICE QUERY-----------------------
+//--------------------NORTON DEVICE QUERIES--------------------
 /////////////////////////////////////////////////////////////////
-
 ////////////////////////////////
 //--NORTON PROJECTOR QUERIES--
 ///////////////////////////////
@@ -160,29 +156,150 @@ function nortonVideoCode232 ($query){
     $result = $stmt->execute();
     $$array = $stmt->fetch_array ($result);
 }
-
-/////////////////////////////////////////////////////////////////
-//--------------------CARVER DEVICE QUERY-----------------------
-/////////////////////////////////////////////////////////////////
 ////////////////////////////////
-//--CARVER PROJECTOR QUERIES--
+//--NORTON POWER QUERIES--
 ///////////////////////////////
-function caverProjectorCode108 ($query){
+function nortonPowerCode11 ($query){
     $stmt = $conn->prepare($query);
-    $stmt = bind_param('ssi', 'Video', 'Norton', 232);
+    $stmt = bind_param('ssi', 'Power', 'Norton', 11);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function nortonPowerCode100200 ($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Power', 'Norton', 100200);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function nortonPowerCode195 ($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Power', 'Norton', 195);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+////////////////////////////////
+//--NORTON PLAY DISC QUERIES--
+///////////////////////////////
+function nortonPlayDiscCode11 ($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Play Disc', 'Norton', 11);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+////////////////////////////////
+//--NORTON ADAPTER QUERIES--
+///////////////////////////////
+function nortonAdapterCode11 ($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Adapter', 'Norton', 11);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+////////////////////////////////
+//--NORTON APPLE TV QUERIES--
+///////////////////////////////
+function nortonAppleTVCode11 ($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Apple TV', 'Norton', 11);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function nortonAppleTVCode12 ($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Apple TV', 'Norton', 12);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function nortonAppleTVCode100200 ($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Apple TV', 'Norton', 100200);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+////////////////////////////////
+//--NORTON SMARTBOARD QUERIES--
+///////////////////////////////
+function nortonSmartBoardCode11 ($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Apple TV', 'Norton', 11);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function nortonSmartBoardCode100200 ($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Apple TV', 'Norton', 100200);
     $result = $stmt->execute();
     $$array = $stmt->fetch_array ($result);
 }
 
-while($row = mysqli_fetch_array($result)) {
-    echo "<tr>";
-    echo "<td>" . $row['FirstName'] . "</td>";
-    echo "<td>" . $row['LastName'] . "</td>";
-    echo "<td>" . $row['Age'] . "</td>";
-    echo "<td>" . $row['Hometown'] . "</td>";
-    echo "<td>" . $row['Job'] . "</td>";
-    echo "</tr>";
+/////////////////////////////////////////////////////////////////
+//--------------------CARVER DEVICE QUERIES---------------------
+/////////////////////////////////////////////////////////////////
+////////////////////////////////
+//--CARVER PROJECTOR QUERIES--
+///////////////////////////////
+function caverProjector($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Projector', 'Carver', 108);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
 }
-echo "</table>";
-mysqli_close($con);
+function caverComputer($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Computer', 'Carver', 108);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function caverScreen($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Screen', 'Carver', 108);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function caverAudio($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Audio', 'Carver', 108);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function caverVideo($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Video', 'Carver', 108);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function caverPower($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Power', 'Carver', 108);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function caverPlayDisc($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Play Disc', 'Carver', 108);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function caverAdapter($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Computer', 'Carver', 108);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+function caverAppleTV($query){
+    $stmt = $conn->prepare($query);
+    $stmt = bind_param('ssi', 'Apple TV', 'Carver', 108);
+    $result = $stmt->execute();
+    $$array = $stmt->fetch_array ($result);
+}
+/////////////////////////////////////////////////////////////////
+//--------------------RANKIN DEVICE QUERIES--------------------
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+//--------------------LIBRARY DEVICE QUERIES--------------------
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+//--------------------COOK DEVICE QUERIES--------------------
+/////////////////////////////////////////////////////////////////
+
 ?>
