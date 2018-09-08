@@ -5,7 +5,6 @@ const building = {Norton: ["", 11, 12, 13, 14, 15, 16, 17, 20,
                   Rankin: ["", 101, 201],
                   Library: ["", "Crismon", "Curriculum Lab", "Mullins Room"],
                   Cook: ["", 8, 221, 224, 'CCRH', 'IRH', 'Heeren Hall']};
-const buildingName = Object.keys(building);
 const nortonRooms = building.Norton;
 const carverRooms = building.Carver;
 const rankinRooms = building.Rankin;
@@ -107,17 +106,10 @@ const probPlayDisc = problem['PlayDisc'];
 const probAdapter = problem['Adapter'];
 const probAppleTV = problem['AppleTV'];
 const probSmartBoard = problem['SmartBoard'];
-const keys = Object.keys(problem);//get keys
-///////////////////////////////////////////////////////
-//DOM OBJECTS---------------------------------------------------------------->
-///////////////////////////////////////////////////////
-const suggestionDiv = document.querySelector('#suggestion-div');
-const menuDiv = document.querySelector('#menu-div svg');
-const menuItems = document.querySelector('#menu-items');
-const suggestionUl = document.querySelector('#suggestion-ul');
-const solutionDiv = document.querySelector('#solution-content-div');
-const paragraph = document.querySelector('#populate');
 
+///////////////////////////////////////////////////////
+//-----------DOM OBJECTS------------------------------>
+///////////////////////////////////////////////////////
 
 //ROOM AND BUILDING FUNCTIONS-------------------------------------------------->
 
@@ -133,7 +125,11 @@ function callRooms(room) {
   }//close loop
 }//end function
 
-//DISPLAY:NONE
+
+///////////////////////
+//REPEATING FUNCTIONS
+///////////////////////
+//DISPLAY CHANGE
 function displayChange(element, type) {
   let domObject = document.querySelector(element);
   domObject.style.display = type;
@@ -151,7 +147,6 @@ function childAppend(element, append){
 
 //BUILDING AND ROOM MENU CONTROLLER-------------------------------------------->
 function buildingSelection() {
-  let selectRoom = document.querySelector('#roomop');
   let buildingSelection = document.querySelector('#buildop');
   let choice = buildingSelection.value; 
   console.log(choice);
@@ -184,6 +179,7 @@ function buildingSelection() {
 
 //CREATE PROBLEM MENU-------------------------------------------------------->
 function callProblem() {
+  let keys = Object.keys(problem);//get keys
   htmlChange('#probop', "<option></option>")
   for (let i = 0; i < keys.length; i++){
     let problemOption = keys[i];//grab problem
@@ -196,10 +192,10 @@ function callProblem() {
 
 //PROBLEM MENU CONTROLLER--------------------------->
 function roomSelection() {
-  var choice2 = document.forms[1].roomop.value;
+  let choice = document.querySelector('#roomop').value;
   displayChange('#probform', 'inline-flex')
-  if (choice2 === "") {
-    probForm.style.display = "none";
+  if (choice === "") {
+    displayChange('#probform', 'none')
   } else {
       callProblem();
   }//end conditional
@@ -212,24 +208,24 @@ function createProblemListItems(e) { //called at 212
   let probTextOp = document.createTextNode(probText);
   probLI.className = "clickable";
   probLI.appendChild(probTextOp);
-  suggestionUl.appendChild(probLI);
+  childAppend('#suggestion-ul', probLI)
 }//end function
 
 //RESET UL SUGGESTION OPTIONS---------------------->
 function resetUL() {
   displayChange('#suggestion-div', 'block')
-  suggestionUl.innerHTML = "";
+  htmlChange('#suggestion-ul', '')
 }
 
 // SUGGESTION OPTIONS CONTROLLER---------------------------------->
 function probSelection() {
-  var choice1 = document.forms[0].buildop.value;
-  var choice2 = document.forms[1].roomop.value;
-  var choice3 = document.forms[2].probop.value;
-
+  let choice1 = document.querySelector('#buildop').value;
+  let choice2 = document.querySelector('#roomop').value;
+  let choice3 = document.querySelector('#probop').value;
+ 
   if (choice3 === "") {//----------FIRST CONDITIONAL
-    suggestionDiv.style.display = "none";
-    solutionDiv.style.display = "none";
+    displayChange('#suggestion-div', 'none')
+    displayChange('#solution-content-div', 'none')
   }
 
   else if (choice3 === "Projector"){//---------SECOND CONDITIONAL
@@ -355,13 +351,19 @@ function probSelection() {
 
 //EXPAND PROBLEM SOLUTION PARAGRAPHS-------------------------->
 function callSolutions(text) {
+  let paragraph = document.querySelector('#populate');
   paragraph.textContent = text;
-  solutionDiv.appendChild(paragraph);
+  childAppend('#solution-content-div', paragraph)
   var button = document.querySelector(".solutionButton");
   button.addEventListener("click", ()=>{
-    solutionDiv.style.display = "block";
+    displayChange('#solution-content-div', 'block')
   })//end click handler
 }//end function
+
+
+////////////////////////////////////////////////////
+//-------------------jQuery------------------------
+////////////////////////////////////////////////////
 
 //SOLUTION MENU FADE OUT -------------------------------------->
 $('.solution-close').click(function(){
