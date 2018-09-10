@@ -378,12 +378,11 @@ function callSolutions(text) {
 //-------------------jQuery------------------------
 ////////////////////////////////////////////////////
 
-//SOLUTION MENU FADE OUT -------------------------------------->
+//SOLUTION MENU FADE OUT ------------------------------>
 $('.solution-close').click(function(){
   $('#solution-content-div').fadeOut(500);
 })
-
-//NAV MENU EXPAND----------------------------------------------------------->
+//NAV MENU EXPAND-------------------------------------->
 $('svg').click(function(){
     $('.menu-items-view').slideToggle(800);
 })//end toggle click handler
@@ -391,3 +390,14 @@ $('#menu-div svg').on("click", function (event) {
     $('.svg').toggleClass('rotate');
     $('.svg').toggleClass('rotate-reset');
 });//end animation click handler
+
+//AJAX ROOM SELECTION----------------------------------->
+function populateRooms(buildingName) {
+  let data = {
+      building = buildingName
+  }
+  let callback = function (response) {
+      $('#roomop').html(response); 
+  }
+  $.get("php/roominfoqueries.php", data, callback);
+}
