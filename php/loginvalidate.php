@@ -17,13 +17,15 @@ if (isset($_POST['username']) &&
     $stmt = mysqli_fetch_array($result);
 }
 if ($stmt){
-  // session_start(['cookie_lifetime' => 86400,]);
+  // session_start();
   // $_SESSION['username'] = $username;
   // $_SESSION['password'] = $password;
   header('Location: requestmanager.php');
   exit();
 } else {
-  echo "<h1>Username and password are incorrect</h2>";
+  echo "<style>header { text-align: center;}h1 {font-family: Montserrat;} h2 {font:normal 1.5em Montserrat;} .signup {width: auto; border: 1px solid #999999; font: normal 1.5em Sawarabi Mincho; color: #444444} .subbutton {font-family: Helvetica; font-size: 1em; width:auto;} table {width: auto; text-align: center; margin-left: auto;margin-right: auto;margin-top: 100px; }
+  </style>";
+  echo "<header><h1>Tech Help Requests Portal</h1><p>Please login to continue</p><p style='color: red;'>*Username and password are incorrect</p></header>";
   echo "<table class = 'login' border='0' cellpadding='2' cellspacing='5' bgcolor='#eeeeee' style='margin-left:auto; margin-right:auto;'>";
   echo "<th colspan='2' align='center'><h2>Login</h2></th>";
   echo "<form method='post' action='loginvalidate.php'>";
