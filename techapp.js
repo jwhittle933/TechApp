@@ -166,22 +166,28 @@ function buildingSelection() {
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(nortonRooms);
+    //populateRooms('Norton')  SOON TO BE DATABASE QUERY
+    populateNortonRooms();
   } else if (choice === "Carver"){
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(carverRooms);
+    //populateRooms('Carver') SOON TO BE DATABASE QUERY
   } else if (choice === "Rankin") {
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(rankinRooms);
+    //populateRooms('Rankin') SOON TO BE DATABASE QUERY
   } else if (choice === "Library"){
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(libraryRooms);
+    //populateRooms('Library') SOON TO BE DATABASE QUERY
   } else if (choice === "Cook"){
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     callRooms(cookRooms);
+    //populateRooms('Cook') SOON TO BE DATABASE QUERY
   }//end conditional
 }//end function
 
@@ -392,12 +398,19 @@ $('#menu-div svg').on("click", function (event) {
 });//end animation click handler
 
 //AJAX ROOM SELECTION----------------------------------->
-function populateRooms(buildingName) {
-  let data = {
-      building = buildingName
-  }
-  let callback = function (response) {
-      $('#roomop').html(response); 
-  }
-  $.get("php/roominfoqueries.php", data, callback);
+// function populateRooms(buildingName) {
+//   let data = {
+//       building = buildingName
+//   }
+//   let callback = function (response) {
+//       $('#roomop').html(response); 
+//   }
+//   $.get("php/roominfoqueries.php", data, callback);
+// }
+function populateNortonRooms(){
+  $.getJSON('json/nortonrooms.json', function(response){
+    let statusHTML = response;
+    console.log(statusHTML);
+    $('#droptest').html(statusHTML);
+  });//end get json
 }
