@@ -1,8 +1,25 @@
 import Vue from 'vue'
-import App from './App.vue'
-
-Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App)
-}).$mount('#app')
+  el: "item",
+  data: {
+    message: "Tech Help @ SBTS"
+  },
+  methods: {
+    refreshMessage(resource) {
+      this.$http.get('/message').then((response) {
+        this.message = response.data.message;
+      });
+    }
+  }
+})
+
+Vue.component('sub-component', {
+  template: '<div>{{ message }}</div>',
+  props: [ 'message' ]
+  methods: {
+    refreshMessage() {
+      this.$emit('refreshMessage');
+    }
+  }
+});

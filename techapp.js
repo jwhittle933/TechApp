@@ -1,3 +1,6 @@
+//////////////////////////////////////////
+//--------TO BE MOVED TO DATABASE--------
+/////////////////////////////////////////
 //OBJECTS-------------------------------------------------------------------->
 const building = {Norton: ["", 11, 12, 13, 14, 15, 16, 17, 20,
         101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232],
@@ -46,11 +49,16 @@ const nortonVideo = {11: "This room is equipped with both HDMI and VGA video inp
                     100200: "This room is equipped with a Crestron room controller. Video options include HDMI, VGA, as well as a Mac Mini running Windows if you don't wish to bring your device. Select the input you desire from the touch screen and the projector will turn on automatically.",
                     195: "There are two different projection systems in Norton 195. If you desire to write on the board, use the Crestron system mounted in the wooden lecturn. This system operates exactly like the rooms on Norton with similar technology, except that there is no House PC mounted in this room. To use the centrally located projector, connect your computer (with adapter if necessary) to the blue-tipped VGA cable and be sure that the selector is on laptop. Then turn the projector on with the white remote.",
                     232: "Room 232 is equipped with a TV and an HDMI cable. Connect your device with appropreiate adapter to the TV and select the HDMI 1 input."}
-const nortonPower = {11: ""}
-const nortonPlayDisc = {11: ""}
-const nortonAdapter = {11: ""}
-const nortonAppleTV = {11: ""}
-const nortonSmartBoard = {11: ""}
+const nortonPower = {11: "This room does not support large-scale power usage. The plates on the wall are the only sources of power.",
+                    100200: "This room has power supplies built into the desks. If the power supplies are not working, please call or email Classroom Technology at extension 4007 or classroomtechnology@sbts.edu.",
+                    208: "This room contains power pockets located variously throughout the floor in front of the seats."}
+const nortonPlayDisc = {11: "There is no native disc playback in this room. If you'd like to play a DVD or Blu Ray disc, please contact Classroom Technology to borrow a Blu Ray player of Campus Technology for a loaner laptop. If your device has a DVD player built-in, connect to the Crestron system (preferably through the HDMI) and insert the disc."}
+const nortonAdapter = {11: "This room has HDMI and VGA video inputs. If your device does not have built-in capabilities with these cables, please see Classroom Technology for an adapter."}
+const nortonAppleTV = {11: "The Apple TV in this room is mounted above the projector. The projector often will turn on and default to the Apple TV input. Follow the instructions on the screen to connect. If the Apple TV is unresponsive, uplug the power cord from the back, wait a few seconds, and reinsert.",
+                      12: "The Apple TV in this room is stored in the lecturn. Access to this Apple TV is the same as the other basement rooms of Norton. If the Apple TV is unresponsive, a technician will have to reset it.",
+                      100200: "There is no Apple TV in this room. To connect, use the HDMI or VGA inputs, or use the House PC mounted in the lecturn and accessible through the Crestron system."}
+const nortonSmartBoard = {11: "There is no smart board technology in this room.",
+                          100200: "The smart board in this room is connected to the House PC and can only be accessed by using that device. To use, login to the House PC with your SBTS credentials and open the White Board application from the Desktop. The smart board becomes the equivalent of a large mousepad and will register your touch, regardless of whether you use the accomanying plastic pens."}
 //CARVER ROOM DEVICES------------------------------->
 const carverProjector = {108: "The projector system in this room has two inputs: HDMI(small and thin) and VGA(slightly larger). Check the wall jack to make sure that it has not been damaged. These rooms also reqire a remote to power on the projector. If one is not present, check the surrounding rooms as there is sure to be one present. Also, you may reach up and manually push the power button on the remote. The Campus Technology office is upstairs on the main hallway and if anyone is there, they may be able to help you."}
 const carverComputer = {108: ""}
@@ -318,6 +326,7 @@ function probSelection() {
     for (var i = 0; i < probPower.length; ++i){
       createProblemListItems(probPower[i]);
     }//close for-loop 6
+    callSolutions(nortonPower[11]);
   }
 
   else if (choice3 === "PlayDisc"){
@@ -325,6 +334,7 @@ function probSelection() {
     for (var i = 0; i < probPlayDisc.length; ++i){
       createProblemListItems(probPlayDisc[i]);
     }//close for-loop 7
+    callSolutions(nortonPlayDisc[11]);
   }
 
   else if (choice3 === "Adapter"){
@@ -332,6 +342,7 @@ function probSelection() {
     for (var i = 0; i < probAdapter.length; ++i){
       createProblemListItems(probAdapter[i]);
     }//close for-loop 8
+    callSolutions(nortonAdapter[11]);
   }
 
   else if (choice3 === "AppleTV"){
@@ -339,6 +350,7 @@ function probSelection() {
     for (var i = 0; i < probAdapter.length; ++i){
       createProblemListItems(probAppleTV[i]);
     }//close for-loop 8
+    callSolutions(nortonAppleTV[11]);
   }
 
   else if (choice3 === "SmartBoard"){
@@ -346,6 +358,7 @@ function probSelection() {
     for (var i = 0; i < probSmartBoard.length; ++i){
       createProblemListItems(probSmartBoard[i]);
     }//close for-loop 8
+    callSolutions(nortonSmartBoard[100200]);
   }//close conditional
 } //end function
 
@@ -354,7 +367,7 @@ function callSolutions(text) {
   let paragraph = document.querySelector('#populate');
   paragraph.textContent = text;
   childAppend('#solution-content-div', paragraph)
-  var button = document.querySelector(".solutionButton");
+  let button = document.querySelector(".solutionButton");
   button.addEventListener("click", ()=>{
     displayChange('#solution-content-div', 'block')
   })//end click handler
