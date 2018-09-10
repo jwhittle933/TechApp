@@ -49,11 +49,6 @@ footer {
   height:100px;
   border: solid 5px #3C5D5E;
 }
-footer ul {
-}
-select {
-  align-self: flex-end;
-}
 a {
   text-decoration: none;
   color: inherit;
@@ -119,8 +114,6 @@ a {
   z-index: 1;
   box-shadow: 5px 5px 5px #67696E;
 }
-#menu-items {
-}
 #menu-items li {
   color: black;
   list-style: none;
@@ -135,18 +128,17 @@ a {
   margin-bottom: 15px;
   margin-top: 0;
 }
-#item2 {
-}
 #item3 {
   margin-top: 0;
   flex-wrap: wrap;
 }
 #forms-div {
   float:left;
-  width: 50%;
+  width: 40%;
 }
 #forms-div li {
   list-style: none;
+  display: flex; 
 }
 #p-div {
   flex-wrap: wrap;
@@ -173,8 +165,6 @@ a {
 #other-links {
   float: right;
   width: 50%;
-}
-#other-links ul {
 }
 #other-links li {
   list-style: none;

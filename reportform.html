@@ -44,17 +44,17 @@
         <th colspan="2" align="center"><h2>Report a Problem</h2></th>
         <form method="post" action="php/forminput.php">
           <tr><td>First Name</td>
-            <td><input type="text" maxlength="32" name="forename" required></td></tr>
+            <td><input type="text" maxlength="32" name="forename" placeholder="First Name"required></td></tr>
           <tr><td>Last Name</td>
-            <td><input type="text" maxlength="32" name="surname"required></td></tr>
+            <td><input type="text" maxlength="32" name="surname" placeholder="Last Name"required></td></tr>
           <tr><td>Building Name</td>
-            <td><input type="text" maxlength="16" name="buildingName"required></td></tr>
+            <td><input type="text" maxlength="16" name="buildingName" placeholder="Building Name"required></td></tr>
           <tr><td>Room Number</td>
-            <td><input type="text" maxlength="16" name="roomNumber" required></td></tr>
+            <td><input type="text" maxlength="16" name="roomNumber" placeholder="Room" required></td></tr>
           <tr><td>Problem</td>
-            <td><textarea type="text" maxlength="200" name="problem" required></textarea></td></tr>
+            <td><textarea type="text" maxlength="200" name="problem" rows="10" cols= "50" placeholder ="Type your problem here..." required></textarea></td></tr>
           <tr><td>Email</td>
-            <td><input type="email" maxlength="64" name="email" required></td></tr>
+            <td><input type="email" maxlength="64" name="email" placeholder="name@emailserver.com"required></td></tr>
           <tr><td colspan="2" align="center"><input class="subbutton" type="submit" name="submit" value="Submit"></td></tr>
         </form>
       </table>

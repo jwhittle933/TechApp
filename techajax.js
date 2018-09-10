@@ -1,10 +1,13 @@
-//INNER HTML
+/////INNER HTML
 function htmlChange(element, content){
     let domObject = document.querySelector(element);
     domObject.innerHTML = content;
   }
 
 function showRooms(choice1, choice2, choice3) {
+    let choice1 = document.querySelector('#buildop').value;
+    let choice2 = document.querySelector('#roomop').value;
+    let choice3 = document.querySelector('#probop').value;
     if (choice1 == "") {
         htmlChange('#roomop', "")
         return;
@@ -27,7 +30,7 @@ function showRooms(choice1, choice2, choice3) {
 }
 $(function(){
     $.ajax({
-        url: 'api.php',  //CALL TO PHP SCRIPT FOR DATA
+        url: 'php/roominfoqueries.php',  //CALL TO PHP SCRIPT FOR DATA
         data: "",        //INSERT URL ARGUMENTS TO PASS TO API
         dataType: 'json',
         success: function(data) {
