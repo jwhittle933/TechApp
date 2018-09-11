@@ -17,9 +17,9 @@ if (isset($_POST['username']) &&
     $stmt = mysqli_fetch_array($result);
 }
 if ($stmt){
-  // session_start();
-  // $_SESSION['username'] = $username;
-  // $_SESSION['password'] = $password;
+  session_start();
+  $username = $_SESSION['username'];
+  $password = $_SESSION['password'];
   header('Location: requestmanager.php');
   exit();
 } else {

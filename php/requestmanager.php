@@ -2,6 +2,13 @@
 require_once 'inc/authenticate.php';
 require_once 'inc/functions.php';
 
+if (!isset($_SESSION['username']) &&
+    !isset($_SESSION['password'])) 
+{
+      header('Location: ../login.html');
+      exit();
+}
+
 
 if (isset($_POST['delete']) && isset($_POST['problem'])) {
   //$problem = htmlentities($_POST['problem'], ENT_QUOTES);//FIGURE OUT HOW TO TAKE OUT APOSTROPHE
