@@ -1,22 +1,28 @@
 <?php
-require_once 'inc/authenticate.php';
-require_once 'inc/functions.php';
+include 'inc/authenticate.php';
+include 'inc/functions.php';
 
-if (!isset($_SESSION['username']) &&
-    !isset($_SESSION['password'])) 
-{
-      header('Location: ../login.html');
-      exit();
-}
+
+// if (isset($_SESSION['username']) &&
+//     isset($_SESSION['password'])) 
+// {
+//   session_start();
+// } else {
+//   header('Location: ../login.html');
+//   exit();
+// }
 
 
 if (isset($_POST['delete']) && isset($_POST['problem'])) {
   //$problem = htmlentities($_POST['problem'], ENT_QUOTES);//FIGURE OUT HOW TO TAKE OUT APOSTROPHE
   $problem = str_replace("'", "''", $_POST['problem']);
-  echo $problem;
   $query = "DELETE FROM formsubmissions WHERE problem = '$problem'";
   $stmt = $conn->query($query);
-  if($conn->affected_rows) echo "Delete Successful<br><br>";
+  if($conn->affected_rows) {
+    echo "<div>";
+    echo "<h3>Delete Successful</h3>";
+    echo "</div>";
+  }
 } else echo "Delete unsuccessful";
 
 if (isset($_POST['forename'])      &&
