@@ -120,7 +120,6 @@ const probSmartBoard = problem['SmartBoard'];
 ///////////////////////////////////////////////////////
 
 //ROOM AND BUILDING FUNCTIONS-------------------------------------------------->
-
 //CREATE ROOM MENU---------------------------------------------------------->
 function callRooms(room) {
   for (let i = 0; i < room.length; i++){
@@ -133,6 +132,41 @@ function callRooms(room) {
   }//close loop
 }//end function
 
+//AJAX ROOM MENU CALL----------------->
+let xmlhttp; 
+function populateRoomMenu()
+ {
+   let value; 
+   let input = this.getElementsbyTagName('options');
+   for (let i = 0; i < options.length; i++ ){
+     if (options[i].selected){
+       value = options[i].value; 
+       break;
+     }
+   }
+   if (!xmlhttp){
+     xmlhttp = new XMLHttpRequest();
+   }
+   let url = "roompopulate.php?building=" + value;
+   xmlhttp.open('GET', url, true);
+   xmlhttp.onreadystatechange = getRooms;
+   xmlhttp.send(null);
+
+   function getRooms(){
+     if (xmlhttp.readState == 4 && xmlhttp.status == 200){
+       let select = document.querySelector('#roomop');
+       select.length = 0; 
+       let roomOp = xmlhttp.responseText.split(",");
+       for (let i = 0; i < roopOp.length; i++){
+         select.options[select.length] = new Option(roomOp[i], roomOp[i]);
+       }
+       select.style.display = "block";
+     } else if (xmlhttp.readyState == 4 && xmlhttp.status != 200){
+       alert("There was an error. Please refresh the page or check your internet connection.")
+     }
+   }
+ }
+document.querySelector('#buildop').onchange = populateRoomMenu;
 
 ///////////////////////
 //REPEATING FUNCTIONS

@@ -62,18 +62,17 @@ if (isset($_POST['forename'])      &&
 $query = "SELECT * FROM formsubmissions";
 $result = $conn->query($query);
 if(!$result) echo "Database access failed";
-
-//echo "<div style='display: flex; flex-wrap: wrap;'>";
 $rows = $result->num_rows;
-for ($i = 0; $i < $rows; ++$i) {//Option 2-------------------------->
+for ($i = 0; $i < $rows; ++$i) {
   $row = $result->fetch_array(MYSQLI_NUM);
 
-  $r0 = htmlspecialchars($row[0], ENT_QUOTES);
+  $r0 = htmlspecialchars($row[0], ENT_QUOTES);//THIS WILL BE ID COLUMN IN TABLE
   $r1 = htmlspecialchars($row[1], ENT_QUOTES);
   $r2 = htmlspecialchars($row[2], ENT_QUOTES);
   $r3 = htmlspecialchars($row[3], ENT_QUOTES);
   $r4 = htmlspecialchars($row[4], ENT_QUOTES);
   $r5 = htmlspecialchars($row[5], ENT_QUOTES);
+  $r6 = htmlspecialchars($row[6], ENT_QUOTES);
 
   echo "<pre>";
   echo "First Name: <b>$r0</b><br>";
@@ -85,7 +84,8 @@ for ($i = 0; $i < $rows; ++$i) {//Option 2-------------------------->
   echo "</pre>";
   echo "<form action='requestmanager.php' method='post'>";
   echo "<input type='hidden' name='delete' value='yes'>";
-  echo "<input type='hidden' name='problem' value='". $r4 . "'>";
+  echo "<input type='hidden' name='id' value='". $r0 . "'>";//TO QUERY FOR ID AND MAKE DELETE
+  echo "<input type='hidden' name='problem' value='". $r4 . "'>";//REPLACE WITH ABOVE
   echo "<input type='submit' value='Delete Record'></form>";
 }
 //echo "</div>";
