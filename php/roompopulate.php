@@ -17,7 +17,7 @@ if (empty($_GET['building'])){
         case "Library":
             $result = ["Crismon", "Curriculum Lab", "Mullins Room"];
             break; 
-        case "Cook": 
+        case "Cooke": 
             $result = [8, 221, 224, 'CCRH', 'IRH', 'Heeren Hall'];
             break; 
     }
