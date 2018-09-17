@@ -45,18 +45,18 @@
   <main>
     <div id="forms-div">
       <ul>
-        <li><form class="form" method="post" action="">
+        <li><form class="form" method="get" action="roompopulate.php">
           <label for="buildop">What building are you in?</label>
-          <select id="buildop" value="" name="buildop" onchange = 'buildingSelection()'>
+          <select id="buildop" value="" name="buildop" onchange = 'populateRoomMenu'>
             <option></option>
             <option>Norton</option>
             <option>Carver</option>
             <option>Rankin</option>
             <option>Library</option>
-            <option>Cook</option>
+            <option>Cooke</option>
           </select>
         </form></li>
-        <li><form id = "roomform" class="form" style="display:none;" method="post" action="">
+        <li><form id = "roomform" class="form" style="display:none;" method="get" action="roomproblem.php">
           <label for="roomop">What room are you in?</label>
           <select id="roomop" name="roomop" onchange='roomSelection()'>
             <option></option>
