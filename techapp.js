@@ -162,8 +162,13 @@ function populateRoomMenu()
        for (let i = 0; i <= options.length; i++){
          let option = options[i];
          console.log(option);
+         let op = document.createElement('option');
+         let opText = document.createTextNode(option);
+         op.appendChild(opText);
+         select.appendChild(op);
        }
-       displayChange('#roomop', 'block');
+       let roomForm = document.querySelector('#roomform');
+       roomForm.style.display = 'block';
      } else if (xhr.readyState == 4 && xhr.status != 200){
        alert("There was an error. Please refresh the page or check your internet connection.")
      }
