@@ -133,18 +133,10 @@ function callRooms(room) {
 }//end function
 
 //AJAX ROOM MENU CALL----------------->
-function populateRoomMenu()
- {
-  //  let value; 
-  //  let input = this.getElementsbyTagName('options');
+function populateRoomMenu(){
   let buildingSelection = document.querySelector('#buildop');
   let value = buildingSelection.value;
-  //  for (let i = 0; i < options.length; i++ ){
-  //    if (options[i].selected){
-  //      value = options[i].value; 
-  //      break;
-  //    }
-  //  }
+ 
   console.log(value);
   let xhr = new XMLHttpRequest();
   let url = "php/roompopulate.php?building=" + value;
@@ -174,7 +166,6 @@ function populateRoomMenu()
      }
    }
  }
-// document.querySelector('#buildop').onchange = populateRoomMenu;
 
 ///////////////////////
 //REPEATING FUNCTIONS
@@ -210,7 +201,7 @@ function buildingSelection() {
     // callRooms(nortonRooms);
     populateRoomMenu();
     //populateRooms('Norton')  SOON TO BE DATABASE QUERY
-    populateNortonRooms();
+    // populateNortonRooms();
   } else if (choice === "Carver"){
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
