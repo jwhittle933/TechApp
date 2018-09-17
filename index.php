@@ -47,7 +47,7 @@
       <ul>
         <li><form class="form" method="get" action="roompopulate.php">
           <label for="buildop">What building are you in?</label>
-          <select id="buildop" value="" name="buildop" onchange = 'populateRoomMenu'>
+          <select id="buildop" value="" name="buildop" onchange = 'populateRoomMenu()'>
             <option></option>
             <option>Norton</option>
             <option>Carver</option>
