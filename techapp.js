@@ -133,40 +133,43 @@ function callRooms(room) {
 }//end function
 
 //AJAX ROOM MENU CALL----------------->
-let xmlhttp; 
 function populateRoomMenu()
  {
-   let value; 
-   let input = this.getElementsbyTagName('options');
-   for (let i = 0; i < options.length; i++ ){
-     if (options[i].selected){
-       value = options[i].value; 
-       break;
-     }
-   }
-   if (!xmlhttp){
-     xmlhttp = new XMLHttpRequest();
-   }
-   let url = "roompopulate.php?building=" + value;
-   xmlhttp.open('GET', url, true);
-   xmlhttp.onreadystatechange = getRooms;
-   xmlhttp.send(null);
+  //  let value; 
+  //  let input = this.getElementsbyTagName('options');
+  let buildingSelection = document.querySelector('#buildop');
+  let value = buildingSelection.value;
+  //  for (let i = 0; i < options.length; i++ ){
+  //    if (options[i].selected){
+  //      value = options[i].value; 
+  //      break;
+  //    }
+  //  }
+  console.log(value);
+  let xhr = new XMLHttpRequest();
+  let url = "php/roompopulate.php?building=" + value;
+  xhr.open('GET', url, true);
+  xhr.onreadystatechange = getRooms;
+  xhr.send(null);
 
    function getRooms(){
-     if (xmlhttp.readState == 4 && xmlhttp.status == 200){
+     if (xhr.readyState == 4 && xhr.status == 200){
        let select = document.querySelector('#roomop');
-       select.length = 0; 
-       let roomOp = xmlhttp.responseText.split(",");
-       for (let i = 0; i < roopOp.length; i++){
-         select.options[select.length] = new Option(roomOp[i], roomOp[i]);
+       select.innerHTML = ""; 
+       let options = xhr.responseText.split(",");
+       options = JSON.parse(options);
+       console.log(options);
+       for (let i = 0; i <= options.length; i++){
+         let option = options[i];
+         console.log(option);
        }
-       select.style.display = "block";
-     } else if (xmlhttp.readyState == 4 && xmlhttp.status != 200){
+       displayChange('#roomop', 'block');
+     } else if (xhr.readyState == 4 && xhr.status != 200){
        alert("There was an error. Please refresh the page or check your internet connection.")
      }
    }
  }
-document.querySelector('#buildop').onchange = populateRoomMenu;
+// document.querySelector('#buildop').onchange = populateRoomMenu;
 
 ///////////////////////
 //REPEATING FUNCTIONS
@@ -199,7 +202,8 @@ function buildingSelection() {
   } if (choice === "Norton") {
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
-    callRooms(nortonRooms);
+    // callRooms(nortonRooms);
+    populateRoomMenu();
     //populateRooms('Norton')  SOON TO BE DATABASE QUERY
     populateNortonRooms();
   } else if (choice === "Carver"){
@@ -441,10 +445,10 @@ $('#menu-div svg').on("click", function (event) {
 //   }
 //   $.get("php/roominfoqueries.php", data, callback);
 // }
-function populateNortonRooms(){
-  $.getJSON('json/nortonrooms.json', function(response){
-    let statusHTML = response;
-    console.log(statusHTML);
-    $('#droptest').html(statusHTML);
-  });//end get json
-}
+// function populateNortonRooms(){
+//   $.getJSON('json/nortonrooms.json', function(response){
+//     let statusHTML = response;
+//     console.log(statusHTML);
+//     $('#droptest').html(statusHTML);
+//   });//end get json
+// }

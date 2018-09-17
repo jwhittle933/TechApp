@@ -1,9 +1,9 @@
 <?php
 
-if (empty($_REQUEST['building'])){
+if (empty($_GET['building'])){
     echo "No data sent";
 } else {
-    $search = trim($_REQUEST['building']);
+    $search = trim($_GET['building']);
     switch($search){
         case "Norton":
             $result = ["", 11, 12, 13, 14, 15, 16, 17, 20,101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232];
@@ -21,7 +21,7 @@ if (empty($_REQUEST['building'])){
             $result = ["", 8, 221, 224, 'CCRH', 'IRH', 'Heeren Hall'];
             break; 
     }
-    echo $result; 
+    echo json_encode($result); 
 }
 
 ?>
