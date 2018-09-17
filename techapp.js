@@ -199,28 +199,32 @@ function buildingSelection() {
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
     // callRooms(nortonRooms);
-    populateRoomMenu();
+    // populateRoomMenu();
     //populateRooms('Norton')  SOON TO BE DATABASE QUERY
     // populateNortonRooms();
   } else if (choice === "Carver"){
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
-    callRooms(carverRooms);
+    // populateRoomMenu();
+    // callRooms(carverRooms);
     //populateRooms('Carver') SOON TO BE DATABASE QUERY
   } else if (choice === "Rankin") {
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
-    callRooms(rankinRooms);
+    // populateRoomMenu();
+    // callRooms(rankinRooms);
     //populateRooms('Rankin') SOON TO BE DATABASE QUERY
   } else if (choice === "Library"){
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
-    callRooms(libraryRooms);
+    // populateRoomMenu();
+    // callRooms(libraryRooms);
     //populateRooms('Library') SOON TO BE DATABASE QUERY
   } else if (choice === "Cook"){
     htmlChange('#roomop', '')
     displayChange('#roomform', "inline-flex")
-    callRooms(cookRooms);
+    // populateRoomMenu();
+    // callRooms(cookRooms);
     //populateRooms('Cook') SOON TO BE DATABASE QUERY
   }//end conditional
 }//end function
