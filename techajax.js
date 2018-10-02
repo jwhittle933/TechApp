@@ -28,9 +28,6 @@ function populateRooms(buildingName) {
 
 
 
-
-
-
 $.ajax({
     url: 'php/roominfoqueries.php',  //CALL TO PHP SCRIPT FOR DATA
     data: "",        //INSERT URL ARGUMENTS TO PASS TO API
